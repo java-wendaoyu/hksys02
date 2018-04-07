@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wendaoyu.hksys.dao.HomeworkAnswerMapper" >
+  <resultMap id="BaseResultMap" type="com.wendaoyu.hksys.domain.HomeworkAnswer" >
+    <id column="homework_answer_id" property="homeworkAnswerId" jdbcType="INTEGER" />
+    <result column="file_path" property="filePath" jdbcType="VARCHAR" />
+    <result column="student_id" property="studentId" jdbcType="INTEGER" />
+    <result column="homework_id" property="homeworkId" jdbcType="INTEGER" />
+    <result column="course_id" property="courseId" jdbcType="INTEGER" />
+    <result column="score" property="score" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.wendaoyu.hksys.domain.HomeworkAnswer" extends="BaseResultMap" >
+    <result column="content" property="content" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    homework_answer_id, file_path, student_id, homework_id, course_id, score
+  </sql>
+  <sql id="Blob_Column_List" >
+    content
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from homework_answer
+    where homework_answer_id = #{homeworkAnswerId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from homework_answer
+    where homework_answer_id = #{homeworkAnswerId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.wendaoyu.hksys.domain.HomeworkAnswer" >
+    insert into homework_answer (homework_answer_id, file_path, student_id, 
+      homework_id, course_id, score, 
+      content)
+    values (#{homeworkAnswerId,jdbcType=INTEGER}, #{filePath,jdbcType=VARCHAR}, #{studentId,jdbcType=INTEGER}, 
+      #{homeworkId,jdbcType=INTEGER}, #{courseId,jdbcType=INTEGER}, #{score,jdbcType=INTEGER}, 
+      #{content,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wendaoyu.hksys.domain.HomeworkAnswer" >
+    insert into homework_answer
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="homeworkAnswerId != null" >
+        homework_answer_id,
+      </if>
+      <if test="filePath != null" >
+        file_path,
+      </if>
+      <if test="studentId != null" >
+        student_id,
+      </if>
+      <if test="homeworkId != null" >
+        homework_id,
+      </if>
+      <if test="courseId != null" >
+        course_id,
+      </if>
+      <if test="score != null" >
+        score,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="homeworkAnswerId != null" >
+        #{homeworkAnswerId,jdbcType=INTEGER},
+      </if>
+      <if test="filePath != null" >
+        #{filePath,jdbcType=VARCHAR},
+      </if>
+      <if test="studentId != null" >
+        #{studentId,jdbcType=INTEGER},
+      </if>
+      <if test="homeworkId != null" >
+        #{homeworkId,jdbcType=INTEGER},
+      </if>
+      <if test="courseId != null" >
+        #{courseId,jdbcType=INTEGER},
+      </if>
+      <if test="score != null" >
+        #{score,jdbcType=INTEGER},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wendaoyu.hksys.domain.HomeworkAnswer" >
+    update homework_answer
+    <set >
+      <if test="filePath != null" >
+        file_path = #{filePath,jdbcType=VARCHAR},
+      </if>
+      <if test="studentId != null" >
+        student_id = #{studentId,jdbcType=INTEGER},
+      </if>
+      <if test="homeworkId != null" >
+        homework_id = #{homeworkId,jdbcType=INTEGER},
+      </if>
+      <if test="courseId != null" >
+        course_id = #{courseId,jdbcType=INTEGER},
+      </if>
+      <if test="score != null" >
+        score = #{score,jdbcType=INTEGER},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where homework_answer_id = #{homeworkAnswerId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.wendaoyu.hksys.domain.HomeworkAnswer" >
+    update homework_answer
+    set file_path = #{filePath,jdbcType=VARCHAR},
+      student_id = #{studentId,jdbcType=INTEGER},
+      homework_id = #{homeworkId,jdbcType=INTEGER},
+      course_id = #{courseId,jdbcType=INTEGER},
+      score = #{score,jdbcType=INTEGER},
+      content = #{content,jdbcType=LONGVARCHAR}
+    where homework_answer_id = #{homeworkAnswerId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wendaoyu.hksys.domain.HomeworkAnswer" >
+    update homework_answer
+    set file_path = #{filePath,jdbcType=VARCHAR},
+      student_id = #{studentId,jdbcType=INTEGER},
+      homework_id = #{homeworkId,jdbcType=INTEGER},
+      course_id = #{courseId,jdbcType=INTEGER},
+      score = #{score,jdbcType=INTEGER}
+    where homework_answer_id = #{homeworkAnswerId,jdbcType=INTEGER}
+  </update>
+</mapper>

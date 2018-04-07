@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wendaoyu.hksys.dao.ProblemMapper" >
+  <resultMap id="BaseResultMap" type="com.wendaoyu.hksys.domain.Problem" >
+    <id column="problem_id" property="problemId" jdbcType="INTEGER" />
+    <result column="score" property="score" jdbcType="INTEGER" />
+    <result column="paper_id" property="paperId" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.wendaoyu.hksys.domain.ProblemWithBLOBs" extends="BaseResultMap" >
+    <result column="headline" property="headline" jdbcType="LONGVARCHAR" />
+    <result column="answer" property="answer" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    problem_id, score, paper_id
+  </sql>
+  <sql id="Blob_Column_List" >
+    headline, answer
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from problem
+    where problem_id = #{problemId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from problem
+    where problem_id = #{problemId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.wendaoyu.hksys.domain.ProblemWithBLOBs" >
+    insert into problem (problem_id, score, paper_id, 
+      headline, answer)
+    values (#{problemId,jdbcType=INTEGER}, #{score,jdbcType=INTEGER}, #{paperId,jdbcType=INTEGER}, 
+      #{headline,jdbcType=LONGVARCHAR}, #{answer,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wendaoyu.hksys.domain.ProblemWithBLOBs" >
+    insert into problem
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="problemId != null" >
+        problem_id,
+      </if>
+      <if test="score != null" >
+        score,
+      </if>
+      <if test="paperId != null" >
+        paper_id,
+      </if>
+      <if test="headline != null" >
+        headline,
+      </if>
+      <if test="answer != null" >
+        answer,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="problemId != null" >
+        #{problemId,jdbcType=INTEGER},
+      </if>
+      <if test="score != null" >
+        #{score,jdbcType=INTEGER},
+      </if>
+      <if test="paperId != null" >
+        #{paperId,jdbcType=INTEGER},
+      </if>
+      <if test="headline != null" >
+        #{headline,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="answer != null" >
+        #{answer,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wendaoyu.hksys.domain.ProblemWithBLOBs" >
+    update problem
+    <set >
+      <if test="score != null" >
+        score = #{score,jdbcType=INTEGER},
+      </if>
+      <if test="paperId != null" >
+        paper_id = #{paperId,jdbcType=INTEGER},
+      </if>
+      <if test="headline != null" >
+        headline = #{headline,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="answer != null" >
+        answer = #{answer,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where problem_id = #{problemId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.wendaoyu.hksys.domain.ProblemWithBLOBs" >
+    update problem
+    set score = #{score,jdbcType=INTEGER},
+      paper_id = #{paperId,jdbcType=INTEGER},
+      headline = #{headline,jdbcType=LONGVARCHAR},
+      answer = #{answer,jdbcType=LONGVARCHAR}
+    where problem_id = #{problemId,jdbcType=INTEGER}
+  </update>
+
+</mapper>

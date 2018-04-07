@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wendaoyu.hksys.dao.UserInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.wendaoyu.hksys.domain.UserInfo" >
+    <id column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="img_path" property="imgPath" jdbcType="VARCHAR" />
+    <result column="user_name" property="userName" jdbcType="VARCHAR" />
+    <result column="passwd" property="passwd" jdbcType="VARCHAR" />
+    <result column="gender" property="gender" jdbcType="INTEGER" />
+    <result column="stu_num" property="stuNum" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="school" property="school" jdbcType="VARCHAR" />
+    <result column="discription" property="discription" jdbcType="VARCHAR" />
+    <result column="is_teacher" property="isTeacher" jdbcType="INTEGER" />
+    <result column="class_name" property="className" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    user_id, img_path, user_name, passwd, gender, stu_num, email, school, discription, 
+    is_teacher, class_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from user_info
+    where user_id = #{userId,jdbcType=INTEGER}
+  </select>
+
+  <select id="selectByCondition" resultMap="BaseResultMap" parameterType="com.wendaoyu.hksys.domain.QueryParam.UserInfoParam" >
+    select
+    <include refid="Base_Column_List" />
+    from user_info
+    where 1=1
+    <if test="userId != null">
+      AND user_id = #{userId,jdbcType=INTEGER}
+    </if>
+    <if test="userName != null and userName != ''">
+      AND user_name = #{userName,jdbcType=VARCHAR}
+    </if>
+    <if test="gender != null">
+      AND gender = #{gender,jdbcType=INTEGER}
+    </if>
+    <if test="passwd != null and passwd != ''">
+      AND passwd = #{passwd,jdbcType=VARCHAR}
+    </if>
+    <if test="stuNum != null and stuNum != ''">
+      AND stu_num = #{stuNum,jdbcType=VARCHAR}
+    </if>
+    <if test="email != null and email != ''">
+      AND email = #{email,jdbcType=VARCHAR}
+    </if>
+    <if test="school != null and school != ''">
+      AND school = #{school,jdbcType=VARCHAR}
+    </if>
+    <if test="isTeacher != null">
+      AND is_teacher = #{isTeacher,jdbcType=INTEGER}
+    </if>
+    <if test="className != null and className != ''">
+      AND class_name = #{className,jdbcType=VARCHAR}
+    </if>
+    <if test="start != null and rows != null">
+      LIMIT #{start}, #{rows}
+    </if>
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from user_info
+    where user_id = #{userId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.wendaoyu.hksys.domain.UserInfo" >
+    insert into user_info (user_id, img_path, user_name, 
+      passwd, gender, stu_num, 
+      email, school, discription, 
+      is_teacher, class_name)
+    values (#{userId,jdbcType=INTEGER}, #{imgPath,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, 
+      #{passwd,jdbcType=VARCHAR}, #{gender,jdbcType=INTEGER}, #{stuNum,jdbcType=VARCHAR}, 
+      #{email,jdbcType=VARCHAR}, #{school,jdbcType=VARCHAR}, #{discription,jdbcType=VARCHAR}, 
+      #{isTeacher,jdbcType=INTEGER}, #{className,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wendaoyu.hksys.domain.UserInfo" >
+    insert into user_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="imgPath != null" >
+        img_path,
+      </if>
+      <if test="userName != null" >
+        user_name,
+      </if>
+      <if test="passwd != null" >
+        passwd,
+      </if>
+      <if test="gender != null" >
+        gender,
+      </if>
+      <if test="stuNum != null" >
+        stu_num,
+      </if>
+      <if test="email != null" >
+        email,
+      </if>
+      <if test="school != null" >
+        school,
+      </if>
+      <if test="discription != null" >
+        discription,
+      </if>
+      <if test="isTeacher != null" >
+        is_teacher,
+      </if>
+      <if test="className != null" >
+        class_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="imgPath != null" >
+        #{imgPath,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="passwd != null" >
+        #{passwd,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null" >
+        #{gender,jdbcType=INTEGER},
+      </if>
+      <if test="stuNum != null" >
+        #{stuNum,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="school != null" >
+        #{school,jdbcType=VARCHAR},
+      </if>
+      <if test="discription != null" >
+        #{discription,jdbcType=VARCHAR},
+      </if>
+      <if test="isTeacher != null" >
+        #{isTeacher,jdbcType=INTEGER},
+      </if>
+      <if test="className != null" >
+        #{className,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wendaoyu.hksys.domain.UserInfo" >
+    update user_info
+    <set >
+      <if test="imgPath != null" >
+        img_path = #{imgPath,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null" >
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="passwd != null" >
+        passwd = #{passwd,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null" >
+        gender = #{gender,jdbcType=INTEGER},
+      </if>
+      <if test="stuNum != null" >
+        stu_num = #{stuNum,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="school != null" >
+        school = #{school,jdbcType=VARCHAR},
+      </if>
+      <if test="discription != null" >
+        discription = #{discription,jdbcType=VARCHAR},
+      </if>
+      <if test="isTeacher != null" >
+        is_teacher = #{isTeacher,jdbcType=INTEGER},
+      </if>
+      <if test="className != null" >
+        class_name = #{className,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wendaoyu.hksys.domain.UserInfo" >
+    update user_info
+    set img_path = #{imgPath,jdbcType=VARCHAR},
+      user_name = #{userName,jdbcType=VARCHAR},
+      passwd = #{passwd,jdbcType=VARCHAR},
+      gender = #{gender,jdbcType=INTEGER},
+      stu_num = #{stuNum,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      school = #{school,jdbcType=VARCHAR},
+      discription = #{discription,jdbcType=VARCHAR},
+      is_teacher = #{isTeacher,jdbcType=INTEGER},
+      class_name = #{className,jdbcType=VARCHAR}
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+</mapper>
