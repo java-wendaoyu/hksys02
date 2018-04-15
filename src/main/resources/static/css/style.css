@@ -1,0 +1,62 @@
+body {
+  color: #333;
+}
+
+.homepage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%);
+  text-align: center;
+}
+
+.homepage .button-setting {
+  width: 120px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header .title {
+  color: red;
+  font-size: 24px;
+}
+
+.breadcrumb li::after {
+  display: inline-block;
+  padding-right: .5rem;
+  padding-left: .5rem;
+  color: #6c757d;
+  content: "/";
+}
+
+.breadcrumb li:last-child::after {
+  content: '';
+}
+
+.lessons button {
+  height: 260px;
+}
+
+.lesson-choose {
+  display: flex;
+  justify-content: space-around;
+}
+
+.lesson-choose .choose {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+
+.self-center {
+  position: relative;
+  top: 50%;
+  transform: translate(-50%);
+}
+/*# sourceMappingURL=style.css.map */

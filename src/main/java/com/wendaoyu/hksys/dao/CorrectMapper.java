@@ -4,6 +4,8 @@ package com.wendaoyu.hksys.dao;
 import com.wendaoyu.hksys.domain.Correct;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface CorrectMapper {
     int deleteByPrimaryKey(Integer correctId);
@@ -17,4 +19,6 @@ public interface CorrectMapper {
     int updateByPrimaryKeySelective(Correct record);
 
     int updateByPrimaryKey(Correct record);
+
+    List<Correct> findCoursesByUser(Integer userId);
 }

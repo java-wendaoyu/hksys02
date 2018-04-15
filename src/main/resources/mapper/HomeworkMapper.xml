@@ -3,10 +3,10 @@
 <mapper namespace="com.wendaoyu.hksys.dao.HomeworkMapper" >
   <resultMap id="BaseResultMap" type="com.wendaoyu.hksys.domain.Homework" >
     <id column="homework_id" property="homeworkId" jdbcType="INTEGER" />
-    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="homework_name" property="homeworkName" jdbcType="VARCHAR" />
     <result column="file_path" property="filePath" jdbcType="VARCHAR" />
     <result column="start_time" property="startTime" jdbcType="TIMESTAMP" />
-    <result column="end-time" property="endTime" jdbcType="TIMESTAMP" />
+    <result column="end_time" property="endTime" jdbcType="TIMESTAMP" />
     <result column="course_id" property="courseId" jdbcType="INTEGER" />
     <result column="score" property="score" jdbcType="INTEGER" />
   </resultMap>
@@ -14,13 +14,21 @@
     <result column="content" property="content" jdbcType="LONGVARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    homework_id, name, file_path, start_time, end-time, course_id, score
+    homework_id, homework_name, file_path, start_time, end_time, course_id, score
   </sql>
   <sql id="Blob_Column_List" >
     content
   </sql>
-  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+
+  <select id="selectHomeworkByCourse" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
+    <include refid="Base_Column_List" />
+    from homework
+    where course_id = #{courseId,jdbcType=INTEGER}
+  </select>
+
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select
     <include refid="Base_Column_List" />
     ,
     <include refid="Blob_Column_List" />
@@ -32,21 +40,21 @@
     where homework_id = #{homeworkId,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.wendaoyu.hksys.domain.Homework" >
-    insert into homework (homework_id, name, file_path, 
-      start_time, end-time, course_id, 
+    insert into homework (homework_id, homework_name, file_path,
+      start_time, end_time, course_id,
       score, content)
-    values (#{homeworkId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{filePath,jdbcType=VARCHAR}, 
+    values (#{homeworkId,jdbcType=INTEGER}, #{homeworkName,jdbcType=VARCHAR}, #{filePath,jdbcType=VARCHAR},
       #{startTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, #{courseId,jdbcType=INTEGER}, 
       #{score,jdbcType=INTEGER}, #{content,jdbcType=LONGVARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.wendaoyu.hksys.domain.Homework" >
+  <insert id="insertSelective" parameterType="com.wendaoyu.hksys.domain.Homework" useGeneratedKeys="true" keyProperty="homeworkId">
     insert into homework
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="homeworkId != null" >
         homework_id,
       </if>
-      <if test="name != null" >
-        name,
+      <if test="homeworkName != null" >
+        homework_name,
       </if>
       <if test="filePath != null" >
         file_path,
@@ -55,7 +63,7 @@
         start_time,
       </if>
       <if test="endTime != null" >
-        end-time,
+        end_time,
       </if>
       <if test="courseId != null" >
         course_id,
@@ -71,8 +79,8 @@
       <if test="homeworkId != null" >
         #{homeworkId,jdbcType=INTEGER},
       </if>
-      <if test="name != null" >
-        #{name,jdbcType=VARCHAR},
+      <if test="homeworkName != null" >
+        #{homeworkName,jdbcType=VARCHAR},
       </if>
       <if test="filePath != null" >
         #{filePath,jdbcType=VARCHAR},
@@ -97,8 +105,8 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.wendaoyu.hksys.domain.Homework" >
     update homework
     <set >
-      <if test="name != null" >
-        name = #{name,jdbcType=VARCHAR},
+      <if test="homeworkName != null" >
+        homework_name = #{homeworkName,jdbcType=VARCHAR},
       </if>
       <if test="filePath != null" >
         file_path = #{filePath,jdbcType=VARCHAR},
@@ -107,7 +115,7 @@
         start_time = #{startTime,jdbcType=TIMESTAMP},
       </if>
       <if test="endTime != null" >
-        end-time = #{endTime,jdbcType=TIMESTAMP},
+        end_time = #{endTime,jdbcType=TIMESTAMP},
       </if>
       <if test="courseId != null" >
         course_id = #{courseId,jdbcType=INTEGER},
@@ -123,10 +131,10 @@
   </update>
   <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.wendaoyu.hksys.domain.Homework" >
     update homework
-    set name = #{name,jdbcType=VARCHAR},
+    set homework_name = #{homeworkName,jdbcType=VARCHAR},
       file_path = #{filePath,jdbcType=VARCHAR},
       start_time = #{startTime,jdbcType=TIMESTAMP},
-      end-time = #{endTime,jdbcType=TIMESTAMP},
+      end_time = #{endTime,jdbcType=TIMESTAMP},
       course_id = #{courseId,jdbcType=INTEGER},
       score = #{score,jdbcType=INTEGER},
       content = #{content,jdbcType=LONGVARCHAR}
@@ -134,10 +142,10 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.wendaoyu.hksys.domain.Homework" >
     update homework
-    set name = #{name,jdbcType=VARCHAR},
+    set homework_name = #{homeworkName,jdbcType=VARCHAR},
       file_path = #{filePath,jdbcType=VARCHAR},
       start_time = #{startTime,jdbcType=TIMESTAMP},
-      end-time = #{endTime,jdbcType=TIMESTAMP},
+      end_ime = #{endTime,jdbcType=TIMESTAMP},
       course_id = #{courseId,jdbcType=INTEGER},
       score = #{score,jdbcType=INTEGER}
     where homework_id = #{homeworkId,jdbcType=INTEGER}

@@ -15,6 +15,14 @@
     from course_student
     where course__stu_id = #{courseStuId,jdbcType=INTEGER}
   </select>
+
+  <select id="selectCourseStudentByUser" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_List" />
+    from course_student
+    where student_id = #{userId,jdbcType=INTEGER}
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from course_student
     where course__stu_id = #{courseStuId,jdbcType=INTEGER}

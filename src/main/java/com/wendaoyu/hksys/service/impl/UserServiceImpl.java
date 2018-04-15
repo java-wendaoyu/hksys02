@@ -9,6 +9,7 @@ import com.wendaoyu.hksys.service.UserService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Service
@@ -51,8 +52,22 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public int login(String userName, String passwd) {
-
-        return 0;
+    public int login(String userName, String passwd, HttpSession session) {
+        UserInfoParam param = new UserInfoParam();
+        param.setUserName(userName);
+        param.setPasswd(passwd);
+        List<UserInfo> userInfos = userInfoMapper.selectByCondition(param);
+        if(userInfos.size() > 0){
+            session.setAttribute("user", userInfos.get(0));
+            return WebConfig.SUCCESS;
+        }else{
+            param.setPasswd(null);
+            userInfos = userInfoMapper.selectByCondition(param);
+            if(userInfos.size() > 0){
+                return WebConfig.PASSWD_ERROR;
+            }else{
+                return WebConfig.ACCOUNT_NOT_EXIST;
+            }
+        }
     }
 }

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Teacher</title>
+  <link rel="stylesheet" href="bootstrap/bootstrap.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="container">
+  <div class="header">
+    <div class="title">学生作业管理系统</div>
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+        aria-expanded="false">
+        XXX老师，您好
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item" href="#">Another action</a>
+        <a class="dropdown-item" href="index.html">退出</a>
+      </div>
+    </div>
+  </div>
+  <ol class="breadcrumb" style="margin-bottom: 5px;">
+    <li>
+      <a href="teach.html">首页</a>
+    </li>
+    <li>
+      <a href="course.html">课程：计算机网络</a>
+    </li>
+    <li>
+      <a href="problem.html">试题</a>
+    </li>
+    <li class="active">创建试题</li>
+  </ol>
+  <hr>
+  <div class="info text-center">
+    <div class="title">试题：XXXXXX</div>
+    <span>总共XX题</span>
+    <span>满分：XXX分</span>
+  </div>
+  <br>
+  <div class="question">
+    <div class="row">
+      <div class="col-md-2">题型、分值</div>
+      <div class="col-md-2">
+        <select name="" id="question-type" class="form-control">
+          <option value="0" selected disabled>请选择题型</option>
+          <option value="1">单选题</option>
+          <option value="2">多选题</option>
+          <option value="3">判断题</option>
+          <option value="4">填空题</option>
+          <option value="5">问答题</option>
+        </select>
+      </div>
+      <div class="col-md-6">
+        <input type="text" class="form-control" placeholder="题目名称">
+      </div>
+      <div class="col-md-2">
+        <input type="number" class="form-control" placeholder="分值">
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-2">题干</div>
+      <div class="col-md-10">
+        <textarea rows="3" class="form-control"></textarea>
+      </div>
+    </div>
+    <br>
+    <div class="row d-none" id="type1">
+      <div class="col-md-2">选项</div>
+      <div class="col-md-10">
+        <div class="radio">
+          <label>
+            <input type="radio" name="exampleRadios" id="exampleRadios3" value="option1"> 单选题
+          </label>
+          <div class="float-right">
+            <button type="button" class="btn btn-sm" disabled>传图</button>
+            <button type="button" class="btn btn-sm" disabled>清空</button>
+            <button type="button" class="btn btn-sm" disabled>删除</button>
+          </div>
+        </div>
+        <div class="radio">
+          <label>
+            <input type="radio" name="exampleRadios" id="exampleRadios4" value="option1"> 单选题XXXX
+          </label>
+          <div class="float-right">
+            <button type="button" class="btn btn-sm" disabled>传图</button>
+            <button type="button" class="btn btn-sm" disabled>清空</button>
+            <button type="button" class="btn btn-sm" disabled>删除</button>
+          </div>
+        </div>
+        <div class="radio">
+          <label>
+            <input type="radio" name="exampleRadios" id="exampleRadios5" value="option1"> 单XXXXX
+          </label>
+          <div class="float-right">
+            <button type="button" class="btn btn-sm" disabled>传图</button>
+            <button type="button" class="btn btn-sm" disabled>清空</button>
+            <button type="button" class="btn btn-sm" disabled>删除</button>
+          </div>
+        </div>
+        <button type="button" class="btn btn-sm btn-secondary" disabled>继续增加选项</button>
+      </div>
+    </div>
+    <div class="row d-none" id="type2">
+      <div class="col-md-2">选项</div>
+      <div class="col-md-10">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" name="exampleRadios" id="exampleRadios2" value="option1"> 这是多选题
+          </label>
+          <div class="float-right">
+            <button type="button" class="btn btn-sm" disabled>传图</button>
+            <button type="button" class="btn btn-sm" disabled>清空</button>
+            <button type="button" class="btn btn-sm" disabled>删除</button>
+          </div>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" name="exampleRadios" id="exampleRadios6" value="option1"> 可以多选
+          </label>
+          <div class="float-right">
+            <button type="button" class="btn btn-sm" disabled>传图</button>
+            <button type="button" class="btn btn-sm" disabled>清空</button>
+            <button type="button" class="btn btn-sm" disabled>删除</button>
+          </div>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" name="exampleRadios" id="exampleRadios7" value="option1"> 多选XXXXXX
+          </label>
+          <div class="float-right">
+            <button type="button" class="btn btn-sm" disabled>传图</button>
+            <button type="button" class="btn btn-sm" disabled>清空</button>
+            <button type="button" class="btn btn-sm" disabled>删除</button>
+          </div>
+        </div>
+        <button type="button" class="btn btn-sm btn-secondary" disabled>继续增加选项</button>
+      </div>
+    </div>
+    <div class="row d-none" id="type3">
+      <div class="col-md-2">选项</div>
+      <div class="col-md-10">
+        <div class="radio">
+          <label>
+            <input type="radio" name="exampleRadios" id="exampleRadios8" value="option1"> True
+          </label>
+        </div>
+        <div class="radio">
+          <label>
+            <input type="radio" name="exampleRadios" id="exampleRadios9" value="option1"> False
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="row d-none" id="type4">
+    </div>
+    <div class="row d-none" id="type5">
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-2">解析</div>
+      <div class="col-md-10">
+        <textarea rows="3" class="form-control"></textarea>
+      </div>
+    </div>
+    <br>
+    <div class="text-center">
+      <button type="button" class="btn btn-secondary" disabled>完成</button>
+      <button type="button" class="btn btn-secondary" disabled>完成并继续添加</button>
+      <button type="button" class="btn btn-secondary" disabled>取消</button>
+    </div>
+    <br>
+  </div>
+  <script src="bootstrap/jquery.js"></script>
+  <script src="bootstrap/bootstrap.bundle.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('#question-type').change(function () {
+        let type = $(this).val()
+        console.log(type)
+        let type1 = $('#type1');
+        let type2 = $('#type2');
+        let type3 = $('#type3');
+        let type4 = $('#type4');
+        let type5 = $('#type5');
+        if (type == 1) {
+          type1.removeClass('d-none');
+          type2.addClass('d-none');
+          type3.addClass('d-none');
+          type4.addClass('d-none');
+          type5.addClass('d-none');
+        }
+        else if (type == 2) {
+          type2.removeClass('d-none');
+          type1.addClass('d-none');
+          type3.addClass('d-none');
+          type4.addClass('d-none');
+          type5.addClass('d-none');
+        }
+        else if (type == 3) {
+          type3.removeClass('d-none');
+          type2.addClass('d-none');
+          type1.addClass('d-none');
+          type4.addClass('d-none');
+          type5.addClass('d-none');
+        }
+        else if (type == 4) {
+          type4.removeClass('d-none');
+          type2.addClass('d-none');
+          type3.addClass('d-none');
+          type1.addClass('d-none');
+          type5.addClass('d-none');
+        }
+        else if (type == 5) {
+          type5.removeClass('d-none');
+          type2.addClass('d-none');
+          type3.addClass('d-none');
+          type4.addClass('d-none');
+          type1.addClass('d-none');
+        }
+      })
+    })
+  </script>
+</body>
+
+</html>

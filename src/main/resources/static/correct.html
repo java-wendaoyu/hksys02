@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Teacher</title>
+  <link rel="stylesheet" href="bootstrap/bootstrap.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="container">
+  <div class="header">
+    <div class="title">学生作业管理系统</div>
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+        aria-expanded="false">
+        XXX老师，您好
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item" href="#">Another action</a>
+        <a class="dropdown-item" href="index.html">退出</a>
+      </div>
+    </div>
+  </div>
+  <ol class="breadcrumb" style="margin-bottom: 5px;">
+    <li>
+      <a href="teach.html">首页</a>
+    </li>
+    <li>
+      <a href="course.html">课程：计算机网络</a>
+    </li>
+    <li>
+      <a href="work.html">作业</a>
+    </li>
+    <li class="active">批改</li>
+  </ol>
+  <hr>
+  <div class="task-info">
+    <div class="title">作业名：XXX 课程：XXX 班级：XXX</div>
+    <div class="date">发布于XXXX-XX-XX &nbsp;&nbsp; 截止于XXXX-XX-XX</div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 btn-group" role="group">
+      <button type="button" class="col-md-4 btn btn-secondary action">全部(XX)</button>
+      <button type="button" class="col-md-4 btn btn-default" disabled>已交(XX)</button>
+      <button type="button" class="col-md-4 btn btn-default" disabled>未交(XX)</button>
+    </div>
+    <div class="col-md-3 offset-md-3">
+      <input type="text" class="form-control" placeholder="搜索学号/姓名">
+    </div>
+  </div>
+  <ul class="p-0">
+    <li class="row border">
+      <div class="col-md-3">
+        <p class="m-0">学生：XXX</p>
+        <p class="m-0">学号：XXXXXXXX</p>
+      </div>
+      <div class="col-md-3 row align-items-center">
+        提交状态：XXX
+        <button type="button" class="btn btn-default" disabled>催交</button>
+      </div>
+      <div class="col-md-2 offset-md-4 row align-items-center">
+        <a href="correct2.html" class="btn btn-light">进入批改</a>
+      </div>
+    </li>
+    <li class="row border">
+      <div class="col-md-3">
+        <p class="m-0">学生：XXX</p>
+        <p class="m-0">学号：XXXXXXXX</p>
+      </div>
+      <div class="col-md-3 row align-items-center">
+        提交状态：XXX
+        <button type="button" class="btn btn-default" disabled>催交</button>
+      </div>
+      <div class="col-md-2 offset-md-4 row align-items-center">
+        <a href="correct2.html" class="btn btn-light">进入批改</a>
+      </div>
+    </li>
+    <li class="row border">
+      <div class="col-md-3">
+        <p class="m-0">学生：XXX</p>
+        <p class="m-0">学号：XXXXXXXX</p>
+      </div>
+      <div class="col-md-3 row align-items-center">
+        提交状态：XXX
+        <button type="button" class="btn btn-default" disabled>催交</button>
+      </div>
+      <div class="col-md-2 offset-md-4 row align-items-center">
+        <a href="correct2.html" class="btn btn-light">进入批改</a>
+      </div>
+    </li>
+  </ul>
+  <script src="bootstrap/jquery.js"></script>
+  <script src="bootstrap/bootstrap.bundle.js"></script>
+</body>
+
+</html>

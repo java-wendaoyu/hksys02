@@ -15,6 +15,10 @@ public class Course {
 
     private String className;
 
+    private String term;
+
+    private String means;
+
     public Integer getCourseId() {
         return courseId;
     }
@@ -55,6 +59,22 @@ public class Course {
         this.className = className == null ? null : className.trim();
     }
 
+    public String getTerm() {
+        return term;
+    }
+
+    public void setTerm(String term) {
+        this.term = term;
+    }
+
+    public String getMeans() {
+        return means;
+    }
+
+    public void setMeans(String means) {
+        this.means = means;
+    }
+
     @Override
     public String toString() {
         return "Course{" +
@@ -63,6 +83,8 @@ public class Course {
                 ", discription='" + discription + '\'' +
                 ", teacherId=" + teacherId +
                 ", className='" + className + '\'' +
+                ", term='" + term + '\'' +
+                ", means='" + means + '\'' +
                 '}';
     }
 }

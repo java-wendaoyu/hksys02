@@ -1,68 +1,76 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.wendaoyu.hksys.dao.CorrectMapper" >
-  <resultMap id="BaseResultMap" type="com.wendaoyu.hksys.domain.Correct" >
-    <id column="correct_id" property="correctId" jdbcType="INTEGER" />
-    <result column="homework_id" property="homeworkId" jdbcType="INTEGER" />
-    <result column="user_id" property="userId" jdbcType="INTEGER" />
-  </resultMap>
-  <sql id="Base_Column_List" >
+<mapper namespace="com.wendaoyu.hksys.dao.CorrectMapper">
+    <resultMap id="BaseResultMap" type="com.wendaoyu.hksys.domain.Correct">
+        <id column="correct_id" property="correctId" jdbcType="INTEGER"/>
+        <result column="homework_id" property="homeworkId" jdbcType="INTEGER"/>
+        <result column="user_id" property="userId" jdbcType="INTEGER"/>
+    </resultMap>
+    <sql id="Base_Column_List">
     correct_id, homework_id, user_id
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
-    <include refid="Base_Column_List" />
-    from correct
-    where correct_id = #{correctId,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from correct
+        where correct_id = #{correctId,jdbcType=INTEGER}
+    </select>
+
+    <select id="findCoursesByUser" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from correct
+        where user_id = #{userId,jdbcType=INTEGER}
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from correct
     where correct_id = #{correctId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.wendaoyu.hksys.domain.Correct" >
+    <insert id="insert" parameterType="com.wendaoyu.hksys.domain.Correct">
     insert into correct (correct_id, homework_id, user_id
       )
     values (#{correctId,jdbcType=INTEGER}, #{homeworkId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.wendaoyu.hksys.domain.Correct" >
-    insert into correct
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="correctId != null" >
-        correct_id,
-      </if>
-      <if test="homeworkId != null" >
-        homework_id,
-      </if>
-      <if test="userId != null" >
-        user_id,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="correctId != null" >
-        #{correctId,jdbcType=INTEGER},
-      </if>
-      <if test="homeworkId != null" >
-        #{homeworkId,jdbcType=INTEGER},
-      </if>
-      <if test="userId != null" >
-        #{userId,jdbcType=INTEGER},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.wendaoyu.hksys.domain.Correct" >
-    update correct
-    <set >
-      <if test="homeworkId != null" >
-        homework_id = #{homeworkId,jdbcType=INTEGER},
-      </if>
-      <if test="userId != null" >
-        user_id = #{userId,jdbcType=INTEGER},
-      </if>
-    </set>
-    where correct_id = #{correctId,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.wendaoyu.hksys.domain.Correct" >
+    <insert id="insertSelective" parameterType="com.wendaoyu.hksys.domain.Correct">
+        insert into correct
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="correctId != null">
+                correct_id,
+            </if>
+            <if test="homeworkId != null">
+                homework_id,
+            </if>
+            <if test="userId != null">
+                user_id,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="correctId != null">
+                #{correctId,jdbcType=INTEGER},
+            </if>
+            <if test="homeworkId != null">
+                #{homeworkId,jdbcType=INTEGER},
+            </if>
+            <if test="userId != null">
+                #{userId,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.wendaoyu.hksys.domain.Correct">
+        update correct
+        <set>
+            <if test="homeworkId != null">
+                homework_id = #{homeworkId,jdbcType=INTEGER},
+            </if>
+            <if test="userId != null">
+                user_id = #{userId,jdbcType=INTEGER},
+            </if>
+        </set>
+        where correct_id = #{correctId,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.wendaoyu.hksys.domain.Correct">
     update correct
     set homework_id = #{homeworkId,jdbcType=INTEGER},
       user_id = #{userId,jdbcType=INTEGER}

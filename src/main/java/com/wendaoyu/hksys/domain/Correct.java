@@ -10,6 +10,8 @@ public class Correct {
 
     private Integer userId;
 
+    private Integer status;
+
     public Integer getCorrectId() {
         return correctId;
     }

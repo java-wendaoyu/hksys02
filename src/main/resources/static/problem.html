@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Teacher</title>
+  <link rel="stylesheet" href="bootstrap/bootstrap.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="container">
+  <div class="header">
+    <div class="title">学生作业管理系统</div>
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+        aria-expanded="false">
+        XXX老师，您好
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item" href="#">Another action</a>
+        <a class="dropdown-item" href="index.html">退出</a>
+      </div>
+    </div>
+  </div>
+  <ol class="breadcrumb" style="margin-bottom: 5px;">
+    <li>
+      <a href="teach.html">首页</a>
+    </li>
+    <li>
+      <a href="course.html">课程：计算机网络</a>
+    </li>
+    <li class="active">试题</li>
+  </ol>
+  <hr>
+  <div class="task-info">
+    <span>班级：XXX</span>
+    <br>
+    <div class="row">
+      <div class="col-md-5">
+        试题：XXX
+        <br> 发布于：XXXX 截止于：XXXX
+      </div>
+      <div class="col-md-3">
+        完成 XX/XX 人
+      </div>
+      <div class="col-md-4">
+        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#addLesson">详情</button>
+        <a href="problemCreate.html">
+          <button type="button" class="btn btn-secondary">创建试题</button>
+        </a>
+      </div>
+    </div>
+    <hr>
+    <div class="task-info">
+      <span>班级：XXX</span>
+      <br>
+      <div class="row">
+        <div class="col-md-5">
+          试题：XXX
+          <br> 发布于：XXXX 截止于：XXXX
+        </div>
+        <div class="col-md-3">
+          完成 XX/XX 人
+        </div>
+        <div class="col-md-4">
+          <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#addLesson">详情</button>
+          <a href="problemCreate.html">
+            <button type="button" class="btn btn-secondary">创建试题</button>
+          </a>
+        </div>
+      </div>
+      <hr>
+    </div>
+    <div class="modal fade" id="addLesson" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <span>列表</span>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+              <span class="sr-only">Close</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <table class="table">
+              <thead class="thead-default">
+                <tr>
+                  <th>#</th>
+                  <th>XX</th>
+                  <th>XXX</th>
+                  <th>XXXX</th>
+                  <th>XXXXX</th>
+                  <th>XXXXX</th>
+                  <th>XXXXXX</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Mark</td>
+                  <td>Otto</td>
+                  <td>@mdo</td>
+                  <td>Mark</td>
+                  <td>Otto</td>
+                  <td>@mdo</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Jacob</td>
+                  <td>Thornton</td>
+                  <td>@fat</td>
+                  <td>Mark</td>
+                  <td>Otto</td>
+                  <td>@mdo</td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td>Larry</td>
+                  <td>the Bird</td>
+                  <td>@twitter</td>
+                  <td>Mark</td>
+                  <td>Otto</td>
+                  <td>@mdo</td>
+                </tr>
+                <tr>
+                  <th scope="row">4</th>
+                  <td>Larry</td>
+                  <td>the Bird</td>
+                  <td>@twitter</td>
+                  <td>Mark</td>
+                  <td>Otto</td>
+                  <td>@mdo</td>
+                </tr>
+                <tr>
+                  <th scope="row">5</th>
+                  <td>Larry</td>
+                  <td>the Bird</td>
+                  <td>@twitter</td>
+                  <td>Mark</td>
+                  <td>Otto</td>
+                  <td>@mdo</td>
+                </tr>
+                <tr>
+                  <th scope="row">6</th>
+                  <td>Larry</td>
+                  <td>the Bird</td>
+                  <td>@twitter</td>
+                  <td>Mark</td>
+                  <td>Otto</td>
+                  <td>@mdo</td>
+                </tr>
+                <tr>
+                  <th scope="row">7</th>
+                  <td>Larry</td>
+                  <td>the Bird</td>
+                  <td>@twitter</td>
+                  <td>Mark</td>
+                  <td>Otto</td>
+                  <td>@mdo</td>
+                </tr>
+                <tr>
+                  <th scope="row">8</th>
+                  <td>Larry</td>
+                  <td>the Bird</td>
+                  <td>@twitter</td>
+                  <td>Mark</td>
+                  <td>Otto</td>
+                  <td>@mdo</td>
+                </tr>
+                <tr>
+                  <th scope="row">9</th>
+                  <td>Larry</td>
+                  <td>the Bird</td>
+                  <td>@twitter</td>
+                  <td>Mark</td>
+                  <td>Otto</td>
+                  <td>@mdo</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <script src="bootstrap/jquery.js"></script>
+    <script src="bootstrap/bootstrap.bundle.js"></script>
+</body>
+
+</html>

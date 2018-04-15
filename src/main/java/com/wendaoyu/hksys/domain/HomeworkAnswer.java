@@ -15,6 +15,8 @@ public class HomeworkAnswer {
 
     private String content;
 
+    private Integer status;
+
     public Integer getHomeworkAnswerId() {
         return homeworkAnswerId;
     }
@@ -69,6 +71,14 @@ public class HomeworkAnswer {
 
     public void setContent(String content) {
         this.content = content == null ? null : content.trim();
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 
     @Override

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Teacher</title>
+  <link rel="stylesheet" href="bootstrap/bootstrap.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="container">
+  <div class="header">
+    <div class="title">学生作业管理系统</div>
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+        aria-expanded="false">
+        XXX老师，您好
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item" href="#">Another action</a>
+        <a class="dropdown-item" href="index.html">退出</a>
+      </div>
+    </div>
+  </div>
+  <ol class="breadcrumb" style="margin-bottom: 5px;">
+    <li>
+      <a href="teach.html">首页</a>
+    </li>
+    <li>
+      <a href="course.html">课程：计算机网络</a>
+    </li>
+    <li>
+      <a href="work.html">作业</a>
+    </li>
+    <li class="active">批改</li>
+  </ol>
+  <hr>
+  <div class="task-info row">
+    <div class="title col-md-6">
+      作业名：XXX 课程：XXX 班级：XXX
+      <br>发布于XXXX-XX-XX &nbsp;&nbsp; 截止于XXXX-XX-XX
+    </div>
+    <div class="col-md-3 offset-md-3">
+      学生：XXX
+      <br>学号：XXXXXXXX
+      <br>提交时间：XXXX-XX-XX
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-md-8 border row justify-content-center align-items-center bg-secondary">
+      支持在线查看
+    </div>
+    <div class="col-md-4 m-2">
+      <div class="row">
+        <label for="" class="col-md-3">文本</label>
+        <textarea name="" id="text" rows="3" class="form-control col-md-9"></textarea>
+        <label for="" class="col-md-3">附件</label>
+        <input type="text" class="form-control col-md-9">
+        <button type="button" class="btn btn-default col-md-4 offset-md-4" disabled>下载作业</button>
+        <hr class="col-md-12">
+      </div>
+      <div class="row">
+        <label for="" class="col-md-3">评分</label>
+        <input type="text" class="form-control col-md-9">
+        <label for="" class="col-md-3">评语</label>
+        <textarea name="" id="" rows="3" class="form-control col-md-9"></textarea>
+        <button type="button" class="btn btn-default col-md-4 offset-md-4" disabled>提交批改</button>
+        <hr class="col-md-12">
+      </div>
+    </div>
+  </div>
+  <script src="bootstrap/jquery.js"></script>
+  <script src="bootstrap/bootstrap.bundle.js"></script>
+</body>
+
+</html>

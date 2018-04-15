@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Teacher</title>
+  <link rel="stylesheet" href="bootstrap/bootstrap.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="container">
+  <div class="header">
+    <div class="title">学生作业管理系统</div>
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+        aria-expanded="false">
+        XXX老师，您好
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item" href="#">Another action</a>
+        <a class="dropdown-item" href="index.html">退出</a>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="row lessons">
+    <div class="col-sm-4">
+      <div class="card card-block text-center">
+        <button type="button" class="btn btn-light">
+          <a href="course.html" style="text-decoration: none;">
+            <h3 class="card-title">计算机网络</h3>
+            <p class="card-text">教师: XXX</p>
+            <p class="card-text">班级: XXX</p>
+            <p class="card-text">学期: XXX</p>
+          </a>
+        </button>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="card card-block text-center">
+        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#addLesson">
+          <div class="add">添加课程</div>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="addLesson" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span>添加课程</span>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only">Close</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <fieldset class="form-group">
+              <input type="text" class="form-control" placeholder="课程名">
+            </fieldset>
+            <fieldset class="form-group">
+              <textarea rows="5" class="form-control" placeholder="课程简介"></textarea>
+            </fieldset>
+            <fieldset class="form-group">
+              <input type="text" class="form-control" placeholder="教学资料">
+            </fieldset>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+          <button type="submit" class="btn btn-primary">保存</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="bootstrap/jquery.js"></script>
+  <script src="bootstrap/bootstrap.bundle.js"></script>
+</body>
+
+</html>

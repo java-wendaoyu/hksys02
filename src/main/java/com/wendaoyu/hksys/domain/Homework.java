@@ -5,7 +5,7 @@ import java.util.Date;
 public class Homework {
     private Integer homeworkId;
 
-    private String name;
+    private String homeworkName;
 
     private String filePath;
 
@@ -27,12 +27,12 @@ public class Homework {
         this.homeworkId = homeworkId;
     }
 
-    public String getName() {
-        return name;
+    public String getHomeworkName() {
+        return homeworkName;
     }
 
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
+    public void setHomeworkName(String homeworkName) {
+        this.homeworkName = homeworkName;
     }
 
     public String getFilePath() {
@@ -87,7 +87,7 @@ public class Homework {
     public String toString() {
         return "Homework{" +
                 "homeworkId=" + homeworkId +
-                ", name='" + name + '\'' +
+                ", homwworkName='" + homeworkName + '\'' +
                 ", filePath='" + filePath + '\'' +
                 ", startTime=" + startTime +
                 ", endTime=" + endTime +

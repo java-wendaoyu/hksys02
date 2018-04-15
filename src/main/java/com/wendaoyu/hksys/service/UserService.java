@@ -2,6 +2,8 @@ package com.wendaoyu.hksys.service;
 
 import com.wendaoyu.hksys.domain.UserInfo;
 
+import javax.servlet.http.HttpSession;
+
 /**
  * 对于用户的管理操作
  */
@@ -33,5 +35,5 @@ public interface UserService {
      * @param passwd
      * @return
      */
-    int login(String userName, String passwd);
+    int login(String userName, String passwd, HttpSession session);
 }

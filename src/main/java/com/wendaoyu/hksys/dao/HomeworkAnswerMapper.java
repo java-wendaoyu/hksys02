@@ -2,7 +2,10 @@ package com.wendaoyu.hksys.dao;
 
 
 import com.wendaoyu.hksys.domain.HomeworkAnswer;
+import com.wendaoyu.hksys.domain.QueryParam.HomeworkAnswerParam;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Repository
 public interface HomeworkAnswerMapper {
@@ -19,4 +22,8 @@ public interface HomeworkAnswerMapper {
     int updateByPrimaryKeyWithBLOBs(HomeworkAnswer record);
 
     int updateByPrimaryKey(HomeworkAnswer record);
+
+    List<HomeworkAnswer> selectByCourse(Integer courseId);
+
+    List<HomeworkAnswer> selectByCondition(HomeworkAnswerParam homeworkAnswerParam);
 }

@@ -4,6 +4,8 @@ package com.wendaoyu.hksys.dao;
 import com.wendaoyu.hksys.domain.Paper;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface PaperMapper {
     int deleteByPrimaryKey(Integer paperId);
@@ -17,4 +19,6 @@ public interface PaperMapper {
     int updateByPrimaryKeySelective(Paper record);
 
     int updateByPrimaryKey(Paper record);
+
+    List<Paper> selectByCourse(Integer courseId);
 }

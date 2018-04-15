@@ -3,6 +3,8 @@ package com.wendaoyu.hksys.dao;
 import com.wendaoyu.hksys.domain.CourseStudent;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface CourseStudentMapper {
     int deleteByPrimaryKey(Integer courseStuId);
@@ -16,4 +18,6 @@ public interface CourseStudentMapper {
     int updateByPrimaryKeySelective(CourseStudent record);
 
     int updateByPrimaryKey(CourseStudent record);
+
+    List<CourseStudent> selectCourseStudentByUser(Integer userId);
 }

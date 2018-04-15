@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Student</title>
+  <link rel="stylesheet" href="bootstrap/bootstrap.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="container">
+  <div class="header">
+    <div class="title">学生作业管理系统</div>
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+        aria-expanded="false">
+        XXX同学，您好
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item" href="#">Another action</a>
+        <a class="dropdown-item" href="index.html">退出</a>
+      </div>
+    </div>
+  </div>
+  <ol class="breadcrumb" style="margin-bottom: 5px;">
+    <li>
+      <a href="student.html">首页</a>
+    </li>
+    <li>
+      <a href="studentCourse.html">课程：计算机网络</a>
+    </li>
+    <li class="active">试题</li>
+  </ol>
+  <div class="row">
+    <div class="col-md-6 btn-group" role="group">
+      <button type="button" class="col-md-6 btn btn-secondary action">全部</button>
+      <button type="button" class="col-md-6 btn btn-default" disabled>未完成</button>
+    </div>
+  </div>
+  <div class="border-top row">
+    <div class="col-md-9 text-danger">
+      计算机网络2018 练习题：XXXXXX
+      <br>授课教师：XXX 班级：XXX
+      <br>发布时间：XXXX-XX-XX 截至时间XXXX-XX-XX
+    </div>
+    <div class="col-md-3 row">
+      <a href="problemFinsh.html" class="btn btn-secondary align-self-center">继续做题</a>
+    </div>
+  </div>
+  <script src="bootstrap/jquery.js"></script>
+  <script src="bootstrap/bootstrap.bundle.js"></script>
+</body>
+
+</html>

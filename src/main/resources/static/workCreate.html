@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Teacher</title>
+  <link rel="stylesheet" href="bootstrap/bootstrap.css">
+  <link rel="stylesheet" href="bootstrap/bootstrap-datepicker.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="container">
+  <div class="header">
+    <div class="title">学生作业管理系统</div>
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+        aria-expanded="false">
+        XXX老师，您好
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item" href="#">Another action</a>
+        <a class="dropdown-item" href="index.html">退出</a>
+      </div>
+    </div>
+  </div>
+  <ol class="breadcrumb" style="margin-bottom: 5px;">
+    <li>
+      <a href="teach.html">首页</a>
+    </li>
+    <li>
+      <a href="course.html">课程：计算机网络</a>
+    </li>
+    <li>
+      <a href="work.html">作业</a>
+    </li>
+    <li class="active">创建作业</li>
+  </ol>
+  <hr>
+
+  <form>
+    <fieldset class="form-group">
+      <input type="text" class="form-control" placeholder="作业名称">
+    </fieldset>
+    <fieldset class="form-group">
+      <input type="text" class="form-control" placeholder="作业内容">
+    </fieldset>
+    <fieldset class="form-group">
+      <div class="form-control">
+        <label>作业附件：</label>
+        <input type="file">
+      </div>
+    </fieldset>
+    <fieldset class="form-group">
+      <div class="form-control">
+        <label>附件类型：</label>
+        <label class="radio-inline">
+          <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> docx
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> pdf
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> xxx
+        </label>
+      </div>
+    </fieldset>
+    <fieldset class="form-group">
+      <div class="form-control">
+        <label>班级：</label>
+        <select class="form-control" style="display: inline-block;width: 30%;">
+          <option value="default">请选择班级</option>
+          <option value="text2">text2</option>
+          <option value="text3">text3</option>
+          <option value="text4">text4</option>
+        </select>
+      </div>
+    </fieldset>
+    <fieldset class="form-group">
+      <div class="form-control">
+        <label>授权学生批改：</label>
+        <select class="form-control" style="display: inline-block;width: 30%;">
+          <option value="default">未选择</option>
+          <option value="text1">text1</option>
+          <option value="text2">text2</option>
+          <option value="text3">text3</option>
+          <option value="text4">text4</option>
+        </select>
+      </div>
+    </fieldset>
+    <fieldset class="form-group">
+      <div id="date-container" class="form-control">
+        <label for="">时间范围：</label>
+        <div class="input-daterange input-group" id="datepicker" style="display: inline-block ;width: 70%;">
+          <input type="text" class="input-sm form-control" name="start" style="display: inline-block ;width: 30%;" />
+          <span class="input-group-addon">to</span>
+          <input type="text" class="input-sm form-control" name="end" style="display: inline-block ;width: 30%;" />
+        </div>
+      </div>
+    </fieldset>
+    <button type="submit" class="btn btn-primary btn-block" disabled>保存并发布</button>
+  </form>
+  <script src="bootstrap/jquery.js"></script>
+  <script src="bootstrap/bootstrap.bundle.js"></script>
+  <script src="bootstrap/bootstrap-datepicker.js"></script>
+  <script src="bootstrap/bootstrap-datepicker.zh-CN.min.js"></script>
+  <script>
+    $('#date-container .input-daterange').datepicker({
+      todayBtn: "linked",
+      clearBtn: true,
+      language: "zh-CN",
+      orientation: "top right"
+    });
+  </script>
+</body>
+
+</html>

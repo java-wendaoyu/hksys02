@@ -5,6 +5,8 @@ import com.wendaoyu.hksys.domain.Problem;
 import com.wendaoyu.hksys.domain.ProblemWithBLOBs;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface ProblemMapper {
     int deleteByPrimaryKey(Integer problemId);
@@ -20,4 +22,6 @@ public interface ProblemMapper {
     int updateByPrimaryKeyWithBLOBs(ProblemWithBLOBs record);
 
     int updateByPrimaryKey(Problem record);
+
+    List<ProblemWithBLOBs> selectByPaper(Integer paperId);
 }

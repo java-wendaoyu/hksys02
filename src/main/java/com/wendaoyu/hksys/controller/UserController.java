@@ -38,7 +38,7 @@ public class UserController {
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public ResultApi addUser(String userName, String passwd, HttpSession session) {
-       int flag = userService.login(userName,passwd);
+       int flag = userService.login(userName,passwd, session);
        if(flag == WebConfig.SUCCESS){
            return new ResultApi(WebConfig.SUCCESS, "登录成功");
        }else if(flag == WebConfig.ACCOUNT_NOT_EXIST){

@@ -4,6 +4,8 @@ package com.wendaoyu.hksys.dao;
 import com.wendaoyu.hksys.domain.Homework;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface HomeworkMapper {
     int deleteByPrimaryKey(Integer homeworkId);
@@ -19,4 +21,6 @@ public interface HomeworkMapper {
     int updateByPrimaryKeyWithBLOBs(Homework record);
 
     int updateByPrimaryKey(Homework record);
+
+    List<Homework> selectHomeworkByCourse(Integer courseId);
 }
