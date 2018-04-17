@@ -3,6 +3,7 @@ package com.wendaoyu.hksys.controller;
 import com.wendaoyu.hksys.config.WebConfig;
 import com.wendaoyu.hksys.domain.Course;
 import com.wendaoyu.hksys.domain.QueryParam.CourseInfoParam;
+import com.wendaoyu.hksys.domain.QueryResult.CourseResult;
 import com.wendaoyu.hksys.domain.ResultApi;
 import com.wendaoyu.hksys.domain.UserInfo;
 import com.wendaoyu.hksys.service.CourseService;
@@ -51,9 +52,16 @@ public class CourseController {
             return new ResultApi(WebConfig.SUCCESS, "查询失败");
         }
     }
+    @RequestMapping(value = "/queryCourseByUser", method = RequestMethod.POST)
+    public ResultApi queryCourseByUser(HttpSession session) {
+        UserInfo record = (UserInfo) session.getAttribute("user");
+        List<Course> data = courseService.findCourseByUser(record.getUserId());
+        return new ResultApi(WebConfig.SUCCESS, data, "查询成功");
+    }
+
     @RequestMapping(value = "/courseDetail", method = RequestMethod.POST)
-    public ResultApi courseDetail(Integer courseId){
-     Course data = courseService.findCourseById(courseId);
-     return new ResultApi(0, data, "查询成功");
+    public ResultApi courseDetail(Integer courseId) {
+        CourseResult data = courseService.findCourseById(courseId);
+        return new ResultApi(0, data, "查询成功");
     }
 }

@@ -22,4 +22,6 @@ public interface CourseMapper {
     int updateByPrimaryKey(Course record);
 
     List<Course> selectByCondition(CourseInfoParam param);
+
+    List<Course> selectByUser(Integer userId);
 }

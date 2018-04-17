@@ -2,8 +2,8 @@ package com.wendaoyu.hksys.service;
 
 import com.wendaoyu.hksys.domain.Course;
 import com.wendaoyu.hksys.domain.QueryParam.CourseInfoParam;
+import com.wendaoyu.hksys.domain.QueryResult.CourseResult;
 
-import javax.servlet.http.HttpSession;
 import java.util.List;
 
 public interface CourseService {
@@ -13,5 +13,7 @@ public interface CourseService {
 
     List<Course> findCoursesByCondition(CourseInfoParam param);
 
-    Course findCourseById(Integer courseId);
+    CourseResult findCourseById(Integer courseId);
+
+    List<Course> findCourseByUser(Integer userId);
 }

@@ -20,6 +20,14 @@
         from course
         where course_id = #{courseId,jdbcType=INTEGER}
     </select>
+
+    <select id="selectByUser" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from course
+        where teacher_id = #{userId,jdbcType=INTEGER}
+        ORDER BY course_id DESC
+    </select>
     <select id="selectByCondition" resultMap="BaseResultMap"
             parameterType="com.wendaoyu.hksys.domain.QueryParam.CourseInfoParam">
         select
@@ -98,10 +106,10 @@
             <if test="className != null">
                 #{className,jdbcType=VARCHAR},
             </if>
-            <if test="term != null">
+            <if test="term != null and term != ''">
                 #{term,jdbcType=VARCHAR},
             </if>
-            <if test="means != null">
+            <if test="means != null and means != ''">
                 #{means,jdbcType=VARCHAR},
             </if>
         </trim>

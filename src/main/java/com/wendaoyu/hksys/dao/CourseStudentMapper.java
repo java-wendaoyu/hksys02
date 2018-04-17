@@ -20,4 +20,6 @@ public interface CourseStudentMapper {
     int updateByPrimaryKey(CourseStudent record);
 
     List<CourseStudent> selectCourseStudentByUser(Integer userId);
+
+    List<CourseStudent> selectCourseStudentByCourse(Integer courseId);
 }

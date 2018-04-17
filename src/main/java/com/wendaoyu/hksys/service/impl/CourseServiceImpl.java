@@ -3,18 +3,24 @@ package com.wendaoyu.hksys.service.impl;
 import com.google.common.base.Preconditions;
 import com.wendaoyu.hksys.config.WebConfig;
 import com.wendaoyu.hksys.dao.CourseMapper;
+import com.wendaoyu.hksys.dao.UserInfoMapper;
 import com.wendaoyu.hksys.domain.Course;
 import com.wendaoyu.hksys.domain.QueryParam.CourseInfoParam;
+import com.wendaoyu.hksys.domain.QueryResult.CourseResult;
+import com.wendaoyu.hksys.domain.UserInfo;
 import com.wendaoyu.hksys.service.CourseService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpSession;
 import java.util.List;
 @Service
 public class CourseServiceImpl implements CourseService {
     @Resource
     private CourseMapper courseMapper;
+
+    @Resource
+    private UserInfoMapper userInfoMapper;
+
     @Override
     public int addCourse(Course course) {
         Preconditions.checkNotNull(course, "添加的课程不能为空");
@@ -42,7 +48,16 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
-    public Course findCourseById(Integer courseId) {
-        return courseMapper.selectByPrimaryKey(courseId);
+    public CourseResult findCourseById(Integer courseId) {
+        Course course = courseMapper.selectByPrimaryKey(courseId);
+        CourseResult result = new CourseResult(course);
+        UserInfo userInfo = userInfoMapper.selectByPrimaryKey(course.getTeacherId());
+        result.setTeacherName(userInfo.getUserName());
+        return result;
+    }
+
+    @Override
+    public List<Course> findCourseByUser(Integer userId) {
+        return courseMapper.selectByUser(userId);
     }
 }

@@ -5,10 +5,11 @@ import com.wendaoyu.hksys.dao.HomeworkAnswerMapper;
 import com.wendaoyu.hksys.domain.HomeworkAnswer;
 import com.wendaoyu.hksys.domain.QueryParam.HomeworkAnswerParam;
 import com.wendaoyu.hksys.service.HomeworkAnswerService;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
-
+@Service
 public class HomeworkAnswerServiceImpl implements HomeworkAnswerService {
 
     @Resource

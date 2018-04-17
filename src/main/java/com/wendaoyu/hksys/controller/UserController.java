@@ -1,18 +1,17 @@
 package com.wendaoyu.hksys.controller;
 
 import com.wendaoyu.hksys.config.WebConfig;
+import com.wendaoyu.hksys.domain.QueryResult.UserLoginResult;
 import com.wendaoyu.hksys.domain.ResultApi;
 import com.wendaoyu.hksys.domain.UserInfo;
 import com.wendaoyu.hksys.service.UserService;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
-import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("/user")
@@ -38,15 +37,15 @@ public class UserController {
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public ResultApi addUser(String userName, String passwd, HttpSession session) {
-       int flag = userService.login(userName,passwd, session);
-       if(flag == WebConfig.SUCCESS){
-           return new ResultApi(WebConfig.SUCCESS, "登录成功");
-       }else if(flag == WebConfig.ACCOUNT_NOT_EXIST){
-           return new ResultApi(WebConfig.ACCOUNT_NOT_EXIST, "用户不存在");
-       } else if(flag == WebConfig.PASSWD_ERROR){
-           return new ResultApi(WebConfig.PASSWD_ERROR, "用户密码错误");
+       UserLoginResult userLoginResult = userService.login(userName,passwd, session);
+       if(userLoginResult.getStatus() == WebConfig.SUCCESS){
+           return new ResultApi(WebConfig.SUCCESS, userLoginResult, "登录成功");
+       }else if(userLoginResult.getStatus() == WebConfig.ACCOUNT_NOT_EXIST){
+           return new ResultApi(WebConfig.ACCOUNT_NOT_EXIST, userLoginResult,"用户不存在");
+       } else if(userLoginResult.getStatus() == WebConfig.PASSWD_ERROR){
+           return new ResultApi(WebConfig.PASSWD_ERROR, userLoginResult,"用户密码错误");
        } else{
-           return new ResultApi(WebConfig.FAIL, "用户登录失败");
+           return new ResultApi(WebConfig.FAIL, userLoginResult,"用户登录失败");
        }
     }
 
@@ -56,4 +55,29 @@ public class UserController {
        return new ResultApi(WebConfig.SUCCESS, "退出成功");
     }
 
+    @RequestMapping(value = "/queryByCourse", method = RequestMethod.POST)
+    public ResultApi queryByCourse(Integer courseId) {
+        List<UserInfo> data = userService.findUserByCourse(courseId);
+        return new ResultApi(WebConfig.SUCCESS, data, "退出成功");
+    }
+
+    @RequestMapping(value = "/userDetail", method = RequestMethod.GET)
+    public ResultApi userDetail(HttpSession session){
+        UserInfo record = (UserInfo) session.getAttribute("user");
+        if(record == null){
+            new ResultApi(WebConfig.FAIL, "请先登录");
+        }
+        UserInfo userInfo = userService.findUserInfoById(record.getUserId());
+        return new ResultApi(WebConfig.SUCCESS, userInfo, "获取成功");
+    }
+
+    @RequestMapping(value = "/updateUser", method = RequestMethod.POST)
+    public ResultApi updateUser(UserInfo userInfo){
+        int flag = userService.alterUser(userInfo);
+        if (flag == WebConfig.SUCCESS) {
+            return new ResultApi(WebConfig.SUCCESS, "修改用户成功");
+        } else {
+            return new ResultApi(WebConfig.FAIL, "修改用户失败");
+        }
+    }
 }

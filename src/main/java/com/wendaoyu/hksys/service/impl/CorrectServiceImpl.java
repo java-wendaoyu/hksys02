@@ -14,11 +14,12 @@ import com.wendaoyu.hksys.domain.HomeworkAnswer;
 import com.wendaoyu.hksys.domain.QueryResult.CorrectResult;
 import com.wendaoyu.hksys.domain.UserInfo;
 import com.wendaoyu.hksys.service.CorrectService;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
-
+@Service
 public class CorrectServiceImpl implements CorrectService {
     @Resource
     private CorrectMapper correctMapper;

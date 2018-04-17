@@ -2,168 +2,150 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Teacher</title>
-  <link rel="stylesheet" href="bootstrap/bootstrap.css">
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Teacher</title>
+    <link rel="stylesheet" href="bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body class="container">
-  <div class="header">
+<div class="header">
     <div class="title">学生作业管理系统</div>
     <div class="dropdown">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-        aria-expanded="false">
-        XXX老师，您好
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="#">Action</a>
-        <a class="dropdown-item" href="#">Another action</a>
-        <a class="dropdown-item" href="index.html">退出</a>
-      </div>
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false">
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#userInfo" id="userProfile">个人资料</a>
+            <a class="dropdown-item" href="#" id="logout">退出</a>
+        </div>
+        <div class="modal fade" id="userInfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            <span class="sr-only">Close</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <fieldset class="form-group">
+                                <input type="text" class="form-control" placeholder="头像" id="imgPath">
+                            </fieldset>
+                            <fieldset class="form-group">
+                                <input type="text" class="form-control" placeholder="用户名" id="username">
+                            </fieldset>
+                            <fieldset class="form-group">
+                                <input type="text" class="form-control" placeholder="密码" id="passwd">
+                            </fieldset>
+                            <fieldset class="form-group">
+                                <input type="email" class="form-control" placeholder="邮箱" id="email">
+                            </fieldset>
+                            <fieldset class="form-group">
+                                <input type="text" class="form-control" placeholder="学号或教职工号" id="Id">
+                            </fieldset>
+                            <fieldset class="form-group">
+                                <input type="text" class="form-control" placeholder="学校" id="school">
+                            </fieldset>
+                            <fieldset class="form-group">
+                                <input type="text" class="form-control" placeholder="班级" id="className">
+                            </fieldset>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="性别" id="sex">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="角色" id="role">
+                            </div>
+                            <div class="form-group">
+                                <fieldset class="form-group">
+                                    <textarea rows="5" class="form-control" placeholder="课程简介" id="discip"></textarea>
+                                </fieldset>
+                            </div>
+                            <button type="button" class="btn btn-primary btn-block" id="updateInfo">保存</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-  <ol class="breadcrumb" style="margin-bottom: 5px;">
+</div>
+<ol class="breadcrumb" style="margin-bottom: 5px;">
     <li>
-      <a href="teach.html">首页</a>
+        <a href="teach.html">首页</a>
     </li>
-    <li class="active">课程：计算机网络</li>
-  </ol>
-  <hr>
-  <div class="lesson-info">
-    <div class="h4">计算机网络 2018</div>
-    <span>授课教师：XXX</span>
-    <span>班级：XXX</span>
-    <p class="info">课程描述：XXXXXXXXXXXXXXXXXXXX</p>
-  </div>
-  <hr>
+    <li class="active"></li>
+</ol>
+<hr>
+<div class="lesson-info">
+    <div class="h4"></div>
+    <span id="teacher" style="margin: 30px"></span>
+    <span id="class"></span>
+    <p class="info" style="margin: 0px 30px"></p>
+</div>
+<hr>
 
-  <div class="lesson-choose">
-    <a href="" class="btn btn-primary choose" data-toggle="modal" data-target="#addLesson">
-      班级学生
+<div class="lesson-choose">
+    <a href="" id="showUser" class="btn btn-primary choose" data-toggle="modal" data-target="#addLesson">
+        班级学生
     </a>
     <a href="problem.html" class="btn btn-success choose">
-      试题
+        试题
     </a>
     <a href="work.html" class="btn btn-info choose">
-      作业
+        作业
     </a>
-  </div>
-  <div class="modal fade" id="addLesson" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+</div>
+<div class="modal fade" id="addLesson" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <span>列表</span>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            <span class="sr-only">Close</span>
-          </button>
+        <div class="modal-content">
+            <div class="modal-header">
+                <span>列表</span>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table class="table">
+                    <thead class="thead-default">
+                    <tr>
+                        <th>#</th>
+                        <th>姓名</th>
+                        <th>学号</th>
+                        <th>班级</th>
+                        <th>学校</th>
+                        <th>性别</th>
+                        <th>邮箱</th>
+                    </tr>
+                    </thead>
+                    <tbody id="content">
+                    </tbody>
+                </table>
+            </div>
         </div>
-        <div class="modal-body">
-          <table class="table">
-            <thead class="thead-default">
-              <tr>
-                <th>#</th>
-                <th>XX</th>
-                <th>XXX</th>
-                <th>XXXX</th>
-                <th>XXXXX</th>
-                <th>XXXXX</th>
-                <th>XXXXXX</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <th scope="row">4</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <th scope="row">5</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <th scope="row">6</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <th scope="row">7</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <th scope="row">8</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <th scope="row">9</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
     </div>
-  </div>
-  <script src="bootstrap/jquery.js"></script>
-  <script src="bootstrap/bootstrap.bundle.js"></script>
+</div>
+<script src="bootstrap/jquery.js"></script>
+<script src="bootstrap/bootstrap.bundle.js"></script>
+<script src="bootstrap/artTemplate.js"></script>
+<script src="js/public.js"></script>
+<script src="js/course.js"></script>
+<script id="users" type="text/html">
+    <tr>
+        <th scope="row">{{index}}</th>
+        <td>{{userName}}</td>
+        <td>{{stuNum}}</td>
+        <td>{{className}}</td>
+        <td>{{school}}</td>
+        <td>{{sex}}</td>
+        <td>{{email}}</td>
+    </tr>
+</script>
 </body>
 
 </html>

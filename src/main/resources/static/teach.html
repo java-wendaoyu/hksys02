@@ -2,84 +2,136 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Teacher</title>
-  <link rel="stylesheet" href="bootstrap/bootstrap.css">
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Teacher</title>
+    <link rel="stylesheet" href="bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body class="container">
-  <div class="header">
+<div class="header">
     <div class="title">学生作业管理系统</div>
     <div class="dropdown">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-        aria-expanded="false">
-        XXX老师，您好
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="#">Action</a>
-        <a class="dropdown-item" href="#">Another action</a>
-        <a class="dropdown-item" href="index.html">退出</a>
-      </div>
-    </div>
-  </div>
-  <hr>
-  <div class="row lessons">
-    <div class="col-sm-4">
-      <div class="card card-block text-center">
-        <button type="button" class="btn btn-light">
-          <a href="course.html" style="text-decoration: none;">
-            <h3 class="card-title">计算机网络</h3>
-            <p class="card-text">教师: XXX</p>
-            <p class="card-text">班级: XXX</p>
-            <p class="card-text">学期: XXX</p>
-          </a>
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false">
         </button>
-      </div>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#userInfo" id="userProfile">个人资料</a>
+            <a class="dropdown-item" href="#" id="logout">退出</a>
+        </div>
+        <div class="modal fade" id="userInfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            <span class="sr-only">Close</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <fieldset class="form-group">
+                                <input type="text" class="form-control" placeholder="头像" id="imgPath">
+                            </fieldset>
+                            <fieldset class="form-group">
+                                <input type="text" class="form-control" placeholder="用户名" id="username">
+                            </fieldset>
+                            <fieldset class="form-group">
+                                <input type="text" class="form-control" placeholder="密码" id="passwd">
+                            </fieldset>
+                            <fieldset class="form-group">
+                                <input type="email" class="form-control" placeholder="邮箱" id="email">
+                            </fieldset>
+                            <fieldset class="form-group">
+                                <input type="text" class="form-control" placeholder="学号或教职工号" id="Id">
+                            </fieldset>
+                            <fieldset class="form-group">
+                                <input type="text" class="form-control" placeholder="学校" id="school">
+                            </fieldset>
+                            <fieldset class="form-group">
+                                <input type="text" class="form-control" placeholder="班级" id="className">
+                            </fieldset>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="性别" id="sex">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="角色" id="role">
+                            </div>
+                            <div class="form-group">
+                                <fieldset class="form-group">
+                                    <textarea rows="5" class="form-control" placeholder="课程简介" id="discip"></textarea>
+                                </fieldset>
+                            </div>
+                            <button type="button" class="btn btn-primary btn-block" id="updateInfo">保存</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-sm-4">
-      <div class="card card-block text-center">
-        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#addLesson">
-          <div class="add">添加课程</div>
-        </button>
-      </div>
+</div>
+<hr>
+<div class="row lessons">
+    <div class="col-sm-12" id="content">
     </div>
-  </div>
-  <div class="modal fade" id="addLesson" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+</div>
+<div class="modal fade" id="addLesson" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <span>添加课程</span>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            <span class="sr-only">Close</span>
-          </button>
+        <div class="modal-content">
+            <div class="modal-header">
+                <span>添加课程</span>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <fieldset class="form-group">
+                        <input type="text" class="form-control" placeholder="课程名" id="courseName">
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <input type="text" class="form-control" placeholder="班级" id="grade">
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <input type="text" class="form-control" placeholder="学期" id="term">
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <textarea rows="5" class="form-control" placeholder="课程简介" id="discr"></textarea>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <input type="text" class="form-control" placeholder="教学资料" id="courseMeans">
+                    </fieldset>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                <button type="submit" class="btn btn-primary" id="courseSave">保存</button>
+            </div>
         </div>
-        <div class="modal-body">
-          <form>
-            <fieldset class="form-group">
-              <input type="text" class="form-control" placeholder="课程名">
-            </fieldset>
-            <fieldset class="form-group">
-              <textarea rows="5" class="form-control" placeholder="课程简介"></textarea>
-            </fieldset>
-            <fieldset class="form-group">
-              <input type="text" class="form-control" placeholder="教学资料">
-            </fieldset>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
-          <button type="submit" class="btn btn-primary">保存</button>
-        </div>
-      </div>
     </div>
-  </div>
+</div>
 
-  <script src="bootstrap/jquery.js"></script>
-  <script src="bootstrap/bootstrap.bundle.js"></script>
+<script src="bootstrap/jquery.js"></script>
+<script src="bootstrap/bootstrap.bundle.js"></script>
+<script src="js/public.js"></script>
+<script src="js/teach.js"></script>
+<script src="bootstrap/artTemplate.js"></script>
+<script id="course" type="text/html">
+    <div class="card card-block text-center divClick" style="float: left;width: 33.33%" id="{{courseId}}">
+        <button type="button" class="btn btn-light">
+            <a href="#" style="text-decoration: none;">
+                <h3 class="card-title">{{courseName}}</h3>
+                <p class="card-text">班级:{{className}}</p>
+                <p class="card-text">学期:{{term}}</p>
+                <p class="card-text">教学资料:{{means}}</p>
+            </a>
+        </button>
+    </div>
+</script>
 </body>
-
 </html>

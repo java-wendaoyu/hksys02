@@ -7,10 +7,11 @@ import com.wendaoyu.hksys.dao.HomeworkMapper;
 import com.wendaoyu.hksys.domain.Correct;
 import com.wendaoyu.hksys.domain.Homework;
 import com.wendaoyu.hksys.service.HomeworkService;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
-
+@Service
 public class HomeworkServiceImpl implements HomeworkService {
 
     @Resource

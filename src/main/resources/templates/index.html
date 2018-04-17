@@ -2,81 +2,106 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Job Management</title>
-  <link rel="stylesheet" href="bootstrap/bootstrap.css">
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Job Management</title>
+    <link rel="stylesheet" href="bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="bootstrap/jquery.js"></script>
 </head>
 
 <body>
-  <div class="container">
+<div class="container">
     <div class="homepage">
-      <h2>作业管理系统</h2>
-      <button type="button" class="btn btn-primary button-setting" data-toggle="modal" data-target="#signin">登录</button>
-      <hr/>
-      <button type="button" class="btn btn-primary button-setting" data-toggle="modal" data-target="#signup">注册</button>
+        <h2>作业管理系统</h2>
+        <button type="button" class="btn btn-primary button-setting" data-toggle="modal" data-target="#signin">登录
+        </button>
+        <hr/>
+        <button type="button" class="btn btn-primary button-setting" data-toggle="modal" data-target="#signup">注册
+        </button>
     </div>
     <div class="modal fade" id="signin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <span>登录</span>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-              <span class="sr-only">Close</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <form>
-              <fieldset class="form-group">
-                <input type="text" class="form-control" placeholder="用户名">
-              </fieldset>
-              <fieldset class="form-group">
-                <input type="password" class="form-control" placeholder="密码">
-              </fieldset>
-              <a href="teach.html">
-                <button type="button" class="btn btn-primary btn-block">登录</button>
-              </a>
-            </form>
-          </div>
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span>登录</span>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <fieldset class="form-group">
+                            <input type="text" class="form-control" placeholder="用户名" id="loginName">
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <input type="password" class="form-control" placeholder="密码" id="loginPasswd">
+                        </fieldset>
+                        <button type="button" class="btn btn-primary btn-block" id="login">登录</button>
+                    </form>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
     <div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <span>注册</span>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-              <span class="sr-only">Close</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <form>
-              <fieldset class="form-group">
-                <input type="text" class="form-control" placeholder="用户名">
-              </fieldset>
-              <fieldset class="form-group">
-                <input type="password" class="form-control" placeholder="密码">
-              </fieldset>
-              <fieldset class="form-group">
-                <input type="password" class="form-control" placeholder="确认密码">
-              </fieldset>
-              <a href="student.html">
-                <button type="button" class="btn btn-primary btn-block">注册</button>
-              </a>
-            </form>
-          </div>
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span>注册</span>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <fieldset class="form-group">
+                            <input type="text" class="form-control" placeholder="用户名" id="username">
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <input type="password" class="form-control" placeholder="密码" id="passwd">
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <input type="password" class="form-control" placeholder="确认密码">
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <input type="email" class="form-control" placeholder="邮箱" id="email">
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <input type="text" class="form-control" placeholder="学号或教职工号" id="Id">
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <input type="text" class="form-control" placeholder="学校" id="school">
+                        </fieldset>
+                        <div class="form-group">
+                            <label for="female">
+                                <input type="radio" id="female" value="1" name="sex">女生
+                            </label>
+                            <label for="male">
+                                <input type="radio" id="male" value="0" name="sex">男生
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label for="teacher">
+                                <input type="radio" id="teacher" value="1" name="role">老师
+                            </label>
+                            <label for="student">
+                                <input type="radio" id="student" value="0" name="role">学生
+                            </label>
+                        </div>
+                        <button type="button" class="btn btn-primary btn-block" id="regist">注册</button>
+                    </form>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
+</div>
 
-  <script src="bootstrap/jquery.js"></script>
-  <script src="bootstrap/bootstrap.bundle.js"></script>
+<script src="bootstrap/jquery.js"></script>
+<script src="bootstrap/bootstrap.bundle.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
 </body>
 
 </html>

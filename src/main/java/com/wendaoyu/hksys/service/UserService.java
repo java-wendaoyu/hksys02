@@ -1,8 +1,10 @@
 package com.wendaoyu.hksys.service;
 
+import com.wendaoyu.hksys.domain.QueryResult.UserLoginResult;
 import com.wendaoyu.hksys.domain.UserInfo;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 /**
  * 对于用户的管理操作
@@ -35,5 +37,9 @@ public interface UserService {
      * @param passwd
      * @return
      */
-    int login(String userName, String passwd, HttpSession session);
+    UserLoginResult login(String userName, String passwd, HttpSession session);
+
+    UserInfo findUserInfoById(Integer userId);
+
+    List<UserInfo> findUserByCourse(Integer courseId);
 }

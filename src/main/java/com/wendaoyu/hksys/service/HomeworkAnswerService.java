@@ -1,6 +1,5 @@
 package com.wendaoyu.hksys.service;
 
-import com.wendaoyu.hksys.domain.Homework;
 import com.wendaoyu.hksys.domain.HomeworkAnswer;
 import com.wendaoyu.hksys.domain.QueryParam.HomeworkAnswerParam;
 
