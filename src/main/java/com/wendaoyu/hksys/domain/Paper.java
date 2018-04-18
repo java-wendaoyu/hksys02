@@ -1,5 +1,9 @@
 package com.wendaoyu.hksys.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import java.util.Date;
+
 public class Paper {
     private Integer paperId;
 
@@ -8,6 +12,8 @@ public class Paper {
     private Integer courseId;
 
     private Integer score;
+    private Date createTime;
+    private Date endTime;
 
     public Integer getPaperId() {
         return paperId;
@@ -39,6 +45,22 @@ public class Paper {
 
     public void setScore(Integer score) {
         this.score = score;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Date getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(Date endTime) {
+        this.endTime = endTime;
     }
 
     @Override

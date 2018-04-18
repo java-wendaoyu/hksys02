@@ -2,6 +2,7 @@ package com.wendaoyu.hksys.controller;
 
 import com.wendaoyu.hksys.config.WebConfig;
 import com.wendaoyu.hksys.domain.Paper;
+import com.wendaoyu.hksys.domain.QueryResult.PaperInfo;
 import com.wendaoyu.hksys.domain.QueryResult.PaperResult;
 import com.wendaoyu.hksys.domain.ResultApi;
 import com.wendaoyu.hksys.service.PaperService;
@@ -40,10 +41,14 @@ public class PaperController {
 
     @RequestMapping(value = "/paperList", method = RequestMethod.POST)
     public ResultApi paperList(Integer courseId) {
-        List<Paper> data = paperService.findPaperByCourse(courseId);
+        List<PaperInfo> data = paperService.findPaperByCourse(courseId);
         return new ResultApi(0, data, "查询成功");
     }
-
+    @RequestMapping(value = "/findPaper", method = RequestMethod.POST)
+    public ResultApi findPaper(Integer paperId) {
+        Paper data = paperService.findPaperById(paperId);
+        return new ResultApi(0, data, "查询成功");
+    }
 
     @RequestMapping(value = "/paperDetail", method = RequestMethod.POST)
     public ResultApi paperDetail(Integer paperId) {

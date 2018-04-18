@@ -8,6 +8,7 @@
     <title>Teacher</title>
     <link rel="stylesheet" href="bootstrap/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
+    <link href="bootstrap/bootstrap-datepicker.css" rel="stylesheet"/>
 </head>
 
 <body class="container">
@@ -86,73 +87,91 @@
     <li>
         <a href="teach.html">首页</a>
     </li>
-    <li class="active"></li>
+    <li>
+        <a href="#" id="lastPage"></a>
+    </li>
+    <li class="active">试题</li>
 </ol>
-<hr>
-<div class="lesson-info">
-    <div class="h4"></div>
-    <span id="teacher" style="margin: 30px"></span>
-    <span id="class"></span>
-    <p class="info" style="margin: 0px 30px"></p>
-</div>
-<hr>
-
-<div class="lesson-choose">
-    <a href="" id="showUser" class="btn btn-primary choose" data-toggle="modal" data-target="#addLesson">
-        班级学生
-    </a>
-    <a href="#" class="btn btn-success choose" id="paperList">
-        试题
-    </a>
-    <a href="work.html" class="btn btn-info choose">
-        作业
-    </a>
-</div>
+<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#addLesson"
+        id="addPaperModel">添加试卷
+</button>
+<hr id="content">
 <div class="modal fade" id="addLesson" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <span>学生列表</span>
+                <span>添加试卷</span>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     <span class="sr-only">Close</span>
                 </button>
             </div>
             <div class="modal-body">
-                <table class="table">
-                    <thead class="thead-default">
-                    <tr>
-                        <th>#</th>
-                        <th>姓名</th>
-                        <th>学号</th>
-                        <th>班级</th>
-                        <th>学校</th>
-                        <th>性别</th>
-                        <th>邮箱</th>
-                    </tr>
-                    </thead>
-                    <tbody id="content">
-                    </tbody>
-                </table>
+                <form>
+                    <fieldset class="form-group nomal">
+                        <label class="col-md-2 control-label"><span class="require">*</span>试题名称：</label>
+                        <input type="text" class="form-control nomal" placeholder="" id="paperName">
+                    </fieldset>
+                    <fieldset class="form-group nomal">
+                        <label class="col-md-2 control-label"><span class="require">*</span>分数：</label>
+                        <input type="text" class="form-control nomal" placeholder="" id="score">
+                    </fieldset>
+                    <fieldset class="form-group startTime">
+                        <label class="col-md-2 control-label"><span class="require">*</span>时间范围：</label>
+                        <div class="input-daterange input-group" id="datepicker">
+                            <input type="text" class="input-sm form-control" name="start" id="startTime"/>
+                            <span class="input-group-addon">--</span>
+                            <input type="text" class="input-sm form-control" name="end" id="endTime"/>
+                        </div>
+                    </fieldset>
+                    <button type="button" class="btn btn-primary" id="savePaper">保存</button>
+                </form>
             </div>
         </div>
     </div>
 </div>
 <script src="bootstrap/jquery.js"></script>
 <script src="bootstrap/bootstrap.bundle.js"></script>
-<script src="bootstrap/artTemplate.js"></script>
 <script src="js/public.js"></script>
-<script src="js/course.js"></script>
-<script id="users" type="text/html">
-    <tr>
-        <th scope="row">{{index}}</th>
-        <td>{{userName}}</td>
-        <td>{{stuNum}}</td>
-        <td>{{className}}</td>
-        <td>{{school}}</td>
-        <td>{{sex}}</td>
-        <td>{{email}}</td>
-    </tr>
+<script src="js/paperList.js"></script>
+<script src="bootstrap/artTemplate.js"></script>
+<script id="papers" type="text/html">
+    <div class="task-info">
+        <span>班级：{{className}}</span> <span style="margin: 0px 30px">试题：{{paperName}}</span>
+        <br>
+        <div class="row">
+            <div class="col-md-5">
+                <span>score：{{score}}</span> <span style="margin: 0px 30px">题数：{{problemTotal}}</span>
+                <br> <span>发布于：{{createTime}}</span>
+                <br><span style="margin: 0px 0px">截止于：{{endTime}}</span>
+            </div>
+            <div class="col-md-3">
+                完成 {{submitTotal}}/{{personTotal}} 人
+            </div>
+            <div class="col-md-4">
+                <button type="button" class="btn btn-secondary paperDetail" id="{{detailId}}">详情</button>
+                <a href="#">
+                    <button type="button" class="btn btn-secondary createProblem" id="{{createId}}">创建试题</button>
+                </a>
+                <button type="button" class="btn btn-secondary delete"  id="{{paperId}}">删除</button>
+            </div>
+        </div>
+        <hr>
+    </div>
+</script>
+<script src="bootstrap/bootstrap-datepicker.js"></script>
+<script src="bootstrap/bootstrap-datepicker.zh-CN.min.js"></script>
+<script>
+    $('.input-daterange').datepicker({
+        format: 'yyyy-mm-dd',
+        autoclose: true,
+        minView: 0,
+        minuteStep:1,
+        todayBtn: "linked",
+        clearBtn: true,
+        language: "zh-CN",
+        orientation: "top right"
+    });
 </script>
 </body>
 

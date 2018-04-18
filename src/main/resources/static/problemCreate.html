@@ -16,12 +16,68 @@
     <div class="dropdown">
       <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
         aria-expanded="false">
-        XXX老师，您好
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="#">Action</a>
-        <a class="dropdown-item" href="#">Another action</a>
-        <a class="dropdown-item" href="index.html">退出</a>
+        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#userInfo" id="userProfile">个人资料</a>
+        <a class="dropdown-item" href="#" id="logout">退出</a>
+      </div>
+      <div class="modal fade" id="userInfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+           aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                <span class="sr-only">Close</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <fieldset class="form-group nomal">
+                  <label class="col-md-2 control-label"><span class="require">*</span>头像：</label>
+                  <input type="text" class="form-control nomal" placeholder="" id="imgPath">
+                </fieldset>
+                <fieldset class="form-group nomal">
+                  <label class="col-md-2 control-label"><span class="require">*</span>用户名：</label>
+                  <input type="text" class="form-control nomal" placeholder="" id="username">
+                </fieldset>
+                <fieldset class="form-group nomal">
+                  <label class="col-md-2 control-label"><span class="require">*</span>密码：</label>
+                  <input type="text" class="form-control nomal" placeholder="" id="passwd">
+                </fieldset>
+                <fieldset class="form-group nomal">
+                  <label class="col-md-2 control-label"><span class="require">*</span>邮箱：</label>
+                  <input type="email" class="form-control nomal" placeholder="" id="email">
+                </fieldset>
+                <fieldset class="form-group nomal">
+                  <label class="col-md-4 control-label"><span class="require">*</span>学号或教职工号：</label>
+                  <input type="text" class="form-control nomal" placeholder="" id="Id">
+                </fieldset>
+                <fieldset class="form-group nomal">
+                  <label class="col-md-2 control-label"><span class="require">*</span>学校：</label>
+                  <input type="text" class="form-control nomal" placeholder="" id="school">
+                </fieldset>
+                <fieldset class="form-group nomal">
+                  <label class="col-md-2 control-label"><span class="require">*</span>班级：</label>
+                  <input type="text" class="form-control nomal" placeholder="" id="className">
+                </fieldset>
+                <fieldset class="form-group nomal">
+                  <label class="col-md-2 control-label"><span class="require">*</span>性别：</label>
+                  <input type="text" class="form-control nomal" placeholder="" id="sex">
+                </fieldset>
+                <fieldset class="form-group nomal">
+                  <label class="col-md-2 control-label"><span class="require">*</span>角色：</label>
+                  <input type="text" class="form-control nomal" placeholder="" id="role">
+                </fieldset>
+                <fieldset class="form-group nomal">
+                  <label class="col-md-3 control-label"><span class="require">*</span>课程简介：</label>
+                  <textarea rows="5" class="form-control nomal" placeholder="" id="discip"></textarea>
+                </fieldset>
+                <button type="button" class="btn btn-primary btn-block" id="updateInfo">保存</button>
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -30,18 +86,20 @@
       <a href="teach.html">首页</a>
     </li>
     <li>
-      <a href="course.html">课程：计算机网络</a>
+      <a href="#" id="course"></a>
     </li>
     <li>
-      <a href="problem.html">试题</a>
+      <a href="#" id="paperList">试题</a>
     </li>
     <li class="active">创建试题</li>
   </ol>
   <hr>
   <div class="info text-center">
-    <div class="title">试题：XXXXXX</div>
-    <span>总共XX题</span>
-    <span>满分：XXX分</span>
+    <span id="title"></span>
+    <span id="allScore"></span>
+    <span id="startTime"></span>
+    <span id="endTime"></span>
+
   </div>
   <br>
   <div class="question">
@@ -58,176 +116,40 @@
         </select>
       </div>
       <div class="col-md-6">
-        <input type="text" class="form-control" placeholder="题目名称">
+        <input type="text" class="form-control" placeholder="题目名称" id="proTitle">
       </div>
       <div class="col-md-2">
-        <input type="number" class="form-control" placeholder="分值">
+        <input type="number" class="form-control" placeholder="分值" id="proScore">
       </div>
     </div>
     <br>
     <div class="row">
       <div class="col-md-2">题干</div>
       <div class="col-md-10">
-        <textarea rows="3" class="form-control"></textarea>
+        <textarea rows="3" class="form-control" id="headline"></textarea>
       </div>
     </div>
     <br>
-    <div class="row d-none" id="type1">
-      <div class="col-md-2">选项</div>
-      <div class="col-md-10">
-        <div class="radio">
-          <label>
-            <input type="radio" name="exampleRadios" id="exampleRadios3" value="option1"> 单选题
-          </label>
-          <div class="float-right">
-            <button type="button" class="btn btn-sm" disabled>传图</button>
-            <button type="button" class="btn btn-sm" disabled>清空</button>
-            <button type="button" class="btn btn-sm" disabled>删除</button>
-          </div>
-        </div>
-        <div class="radio">
-          <label>
-            <input type="radio" name="exampleRadios" id="exampleRadios4" value="option1"> 单选题XXXX
-          </label>
-          <div class="float-right">
-            <button type="button" class="btn btn-sm" disabled>传图</button>
-            <button type="button" class="btn btn-sm" disabled>清空</button>
-            <button type="button" class="btn btn-sm" disabled>删除</button>
-          </div>
-        </div>
-        <div class="radio">
-          <label>
-            <input type="radio" name="exampleRadios" id="exampleRadios5" value="option1"> 单XXXXX
-          </label>
-          <div class="float-right">
-            <button type="button" class="btn btn-sm" disabled>传图</button>
-            <button type="button" class="btn btn-sm" disabled>清空</button>
-            <button type="button" class="btn btn-sm" disabled>删除</button>
-          </div>
-        </div>
-        <button type="button" class="btn btn-sm btn-secondary" disabled>继续增加选项</button>
-      </div>
-    </div>
-    <div class="row d-none" id="type2">
-      <div class="col-md-2">选项</div>
-      <div class="col-md-10">
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" name="exampleRadios" id="exampleRadios2" value="option1"> 这是多选题
-          </label>
-          <div class="float-right">
-            <button type="button" class="btn btn-sm" disabled>传图</button>
-            <button type="button" class="btn btn-sm" disabled>清空</button>
-            <button type="button" class="btn btn-sm" disabled>删除</button>
-          </div>
-        </div>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" name="exampleRadios" id="exampleRadios6" value="option1"> 可以多选
-          </label>
-          <div class="float-right">
-            <button type="button" class="btn btn-sm" disabled>传图</button>
-            <button type="button" class="btn btn-sm" disabled>清空</button>
-            <button type="button" class="btn btn-sm" disabled>删除</button>
-          </div>
-        </div>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" name="exampleRadios" id="exampleRadios7" value="option1"> 多选XXXXXX
-          </label>
-          <div class="float-right">
-            <button type="button" class="btn btn-sm" disabled>传图</button>
-            <button type="button" class="btn btn-sm" disabled>清空</button>
-            <button type="button" class="btn btn-sm" disabled>删除</button>
-          </div>
-        </div>
-        <button type="button" class="btn btn-sm btn-secondary" disabled>继续增加选项</button>
-      </div>
-    </div>
-    <div class="row d-none" id="type3">
-      <div class="col-md-2">选项</div>
-      <div class="col-md-10">
-        <div class="radio">
-          <label>
-            <input type="radio" name="exampleRadios" id="exampleRadios8" value="option1"> True
-          </label>
-        </div>
-        <div class="radio">
-          <label>
-            <input type="radio" name="exampleRadios" id="exampleRadios9" value="option1"> False
-          </label>
-        </div>
-      </div>
-    </div>
-    <div class="row d-none" id="type4">
-    </div>
-    <div class="row d-none" id="type5">
-    </div>
+
     <br>
     <div class="row">
       <div class="col-md-2">解析</div>
       <div class="col-md-10">
-        <textarea rows="3" class="form-control"></textarea>
+        <textarea rows="3" class="form-control" id="answer"></textarea>
       </div>
     </div>
     <br>
     <div class="text-center">
-      <button type="button" class="btn btn-secondary" disabled>完成</button>
-      <button type="button" class="btn btn-secondary" disabled>完成并继续添加</button>
-      <button type="button" class="btn btn-secondary" disabled>取消</button>
+      <button type="button" class="btn btn-secondary"  id="save">完成</button>
+      <button type="button" class="btn btn-secondary"  id="saveAndAdd">完成并继续添加</button>
+      <button type="button" class="btn btn-secondary"  id="cancel">取消</button>
     </div>
     <br>
   </div>
   <script src="bootstrap/jquery.js"></script>
   <script src="bootstrap/bootstrap.bundle.js"></script>
-  <script>
-    $(document).ready(function () {
-      $('#question-type').change(function () {
-        let type = $(this).val()
-        console.log(type)
-        let type1 = $('#type1');
-        let type2 = $('#type2');
-        let type3 = $('#type3');
-        let type4 = $('#type4');
-        let type5 = $('#type5');
-        if (type == 1) {
-          type1.removeClass('d-none');
-          type2.addClass('d-none');
-          type3.addClass('d-none');
-          type4.addClass('d-none');
-          type5.addClass('d-none');
-        }
-        else if (type == 2) {
-          type2.removeClass('d-none');
-          type1.addClass('d-none');
-          type3.addClass('d-none');
-          type4.addClass('d-none');
-          type5.addClass('d-none');
-        }
-        else if (type == 3) {
-          type3.removeClass('d-none');
-          type2.addClass('d-none');
-          type1.addClass('d-none');
-          type4.addClass('d-none');
-          type5.addClass('d-none');
-        }
-        else if (type == 4) {
-          type4.removeClass('d-none');
-          type2.addClass('d-none');
-          type3.addClass('d-none');
-          type1.addClass('d-none');
-          type5.addClass('d-none');
-        }
-        else if (type == 5) {
-          type5.removeClass('d-none');
-          type2.addClass('d-none');
-          type3.addClass('d-none');
-          type4.addClass('d-none');
-          type1.addClass('d-none');
-        }
-      })
-    })
-  </script>
+  <script src="js/public.js"></script>
+  <script src="js/problemCreate.js"></script>
 </body>
 
 </html>

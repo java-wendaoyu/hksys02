@@ -6,7 +6,12 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.core.convert.converter.Converter;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @SpringBootApplication
 @MapperScan("com.wendaoyu.hksys.dao")
@@ -20,5 +25,21 @@ public class HksysApplication extends SpringBootServletInitializer {
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
 		return application.sources(HksysApplication.class);
+	}
+	@Bean
+	public Converter<String, Date> addNewConvert(){
+		return new Converter<String, Date>() {
+			@Override
+			public Date convert(String source) {
+				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+				Date date = null;
+				try {
+					date = sdf.parse( source);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				return date;
+			}
+		};
 	}
 }

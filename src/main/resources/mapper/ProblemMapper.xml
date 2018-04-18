@@ -26,9 +26,17 @@
         from problem
         where problem_id = #{problemId,jdbcType=INTEGER}
     </select>
+    <select id="countByPaper" resultType="java.lang.Integer" parameterType="java.lang.Integer">
+        select
+        COUNT(*)
+        from problem
+        where paper_id = #{paperId,jdbcType=INTEGER}
+    </select>
     <select id="selectByPaper" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
         select
         <include refid="Base_Column_List" />
+        ,
+        <include refid="Blob_Column_List"/>
         from problem
         where paper_id = #{paperId,jdbcType=INTEGER}
     </select>

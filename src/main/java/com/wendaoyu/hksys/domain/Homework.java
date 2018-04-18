@@ -1,5 +1,7 @@
 package com.wendaoyu.hksys.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 public class Homework {
@@ -10,7 +12,6 @@ public class Homework {
     private String filePath;
 
     private Date startTime;
-
     private Date endTime;
 
     private Integer courseId;

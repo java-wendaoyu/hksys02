@@ -38,7 +38,7 @@ public class ProblemServiceImpl implements ProblemService {
     @Override
     public int alterProblem(ProblemWithBLOBs record) {
         Preconditions.checkNotNull(record, "修改题目不能为空");
-        int flag = problemMapper.updateByPrimaryKey(record);
+        int flag = problemMapper.updateByPrimaryKeySelective(record);
         if(flag > 0){
             return WebConfig.SUCCESS;
         }else{

@@ -19,4 +19,6 @@ public interface ProblemAnswerMapper {
     int updateByPrimaryKeyWithBLOBs(ProblemAnswer record);
 
     int updateByPrimaryKey(ProblemAnswer record);
+
+    int selectSubmitNumberByPaper(Integer paperId);
 }

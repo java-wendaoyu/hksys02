@@ -68,4 +68,7 @@ $().ready(function () {
     $("#showUser").click(function () {
         program.queryUserByCourse();
     })
+    $("#paperList").click(function () {
+        window.location.href = "paperList.html?courseId="+courseId+"&className="+program.className +"&courseName=" +program.courseName;
+    });
 });

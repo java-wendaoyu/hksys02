@@ -1,3 +1,7 @@
+*{
+  margin: 0px;
+  padding: 0px;
+}
 body {
   color: #333;
 }
@@ -60,3 +64,40 @@ body {
   transform: translate(-50%);
 }
 /*# sourceMappingURL=style.css.map */
+.modal-body{
+  text-align: center;
+}
+.modal-body form .startTime>label,
+.modal-body form .endTime>label{
+  float: left;
+  padding: 0px;
+  width: auto;
+  line-height: 38px;
+}
+.modal-body form .nomal>label{
+  float: left;
+  padding: 0px;
+  width: auto;
+  line-height: 30px;
+}
+.modal-body form .nomal>input{
+  float: left;
+  padding: 0px;
+  width: auto;
+}
+.modal-body form .startTime>div,
+.modal-body form .endTime>div{
+  float: left;
+  padding: 0px;
+  width: auto;
+}
+.info{
+  width:100%;
+  height: 40px;
+}
+.info>span{
+  width: 25%;
+  height: 30px;
+  display: block;
+  float: left;
+}

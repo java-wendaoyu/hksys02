@@ -27,6 +27,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
+                        <span>个人资料</span>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                             <span class="sr-only">Close</span>
@@ -34,38 +35,46 @@
                     </div>
                     <div class="modal-body">
                         <form>
-                            <fieldset class="form-group">
-                                <input type="text" class="form-control" placeholder="头像" id="imgPath">
+                            <fieldset class="form-group nomal">
+                                <label class="col-md-2 control-label"><span class="require">*</span>头像：</label>
+                                <input type="text" class="form-control nomal" placeholder="" id="imgPath">
                             </fieldset>
-                            <fieldset class="form-group">
-                                <input type="text" class="form-control" placeholder="用户名" id="username">
+                            <fieldset class="form-group nomal">
+                                <label class="col-md-2 control-label"><span class="require">*</span>用户名：</label>
+                                <input type="text" class="form-control nomal" placeholder="" id="username">
                             </fieldset>
-                            <fieldset class="form-group">
-                                <input type="text" class="form-control" placeholder="密码" id="passwd">
+                            <fieldset class="form-group nomal">
+                                <label class="col-md-2 control-label"><span class="require">*</span>密码：</label>
+                                <input type="text" class="form-control nomal" placeholder="" id="passwd">
                             </fieldset>
-                            <fieldset class="form-group">
-                                <input type="email" class="form-control" placeholder="邮箱" id="email">
+                            <fieldset class="form-group nomal">
+                                <label class="col-md-2 control-label"><span class="require">*</span>邮箱：</label>
+                                <input type="email" class="form-control nomal" placeholder="" id="email">
                             </fieldset>
-                            <fieldset class="form-group">
-                                <input type="text" class="form-control" placeholder="学号或教职工号" id="Id">
+                            <fieldset class="form-group nomal">
+                                <label class="col-md-4 control-label"><span class="require">*</span>学号或教职工号：</label>
+                                <input type="text" class="form-control nomal" placeholder="" id="Id">
                             </fieldset>
-                            <fieldset class="form-group">
-                                <input type="text" class="form-control" placeholder="学校" id="school">
+                            <fieldset class="form-group nomal">
+                                <label class="col-md-2 control-label"><span class="require">*</span>学校：</label>
+                                <input type="text" class="form-control nomal" placeholder="" id="school">
                             </fieldset>
-                            <fieldset class="form-group">
-                                <input type="text" class="form-control" placeholder="班级" id="className">
+                            <fieldset class="form-group nomal">
+                                <label class="col-md-2 control-label"><span class="require">*</span>班级：</label>
+                                <input type="text" class="form-control nomal" placeholder="" id="className">
                             </fieldset>
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="性别" id="sex">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="角色" id="role">
-                            </div>
-                            <div class="form-group">
-                                <fieldset class="form-group">
-                                    <textarea rows="5" class="form-control" placeholder="课程简介" id="discip"></textarea>
-                                </fieldset>
-                            </div>
+                            <fieldset class="form-group nomal">
+                                <label class="col-md-2 control-label"><span class="require">*</span>性别：</label>
+                                <input type="text" class="form-control nomal" placeholder="" id="sex">
+                            </fieldset>
+                            <fieldset class="form-group nomal">
+                                <label class="col-md-2 control-label"><span class="require">*</span>角色：</label>
+                                <input type="text" class="form-control nomal" placeholder="" id="role">
+                            </fieldset>
+                            <fieldset class="form-group nomal">
+                                <label class="col-md-3 control-label"><span class="require">*</span>课程简介：</label>
+                                <textarea rows="5" class="form-control nomal" placeholder="" id="discip"></textarea>
+                            </fieldset>
                             <button type="button" class="btn btn-primary btn-block" id="updateInfo">保存</button>
                         </form>
                     </div>

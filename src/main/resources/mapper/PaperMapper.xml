@@ -6,9 +6,11 @@
         <result column="paper_name" property="paperName" jdbcType="VARCHAR"/>
         <result column="course_id" property="courseId" jdbcType="INTEGER"/>
         <result column="score" property="score" jdbcType="INTEGER"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="end_time" property="endTime" jdbcType="TIMESTAMP"/>
     </resultMap>
     <sql id="Base_Column_List">
-    paper_id, paper_name, course_id, score
+    paper_id, paper_name, course_id, score, create_time, end_time
   </sql>
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
         select
@@ -21,6 +23,7 @@
         <include refid="Base_Column_List"/>
         from paper
         where course_id = #{courseId,jdbcType=INTEGER}
+        ORDER BY paper_id DESC
     </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from paper
@@ -28,9 +31,9 @@
   </delete>
     <insert id="insert" parameterType="com.wendaoyu.hksys.domain.Paper">
     insert into paper (paper_id, paper_name, course_id, 
-      score)
+      score, create_time, end_time)
     values (#{paperId,jdbcType=INTEGER}, #{paperName,jdbcType=VARCHAR}, #{courseId,jdbcType=INTEGER}, 
-      #{score,jdbcType=INTEGER})
+      #{score,jdbcType=INTEGER},#{createTime,jdbcType=TIMESTAMP},#{endTime,jdbcType=TIMESTAMP})
   </insert>
     <insert id="insertSelective" parameterType="com.wendaoyu.hksys.domain.Paper">
         insert into paper
@@ -47,6 +50,12 @@
             <if test="score != null">
                 score,
             </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="endTime != null">
+                end_time,
+            </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="paperId != null">
@@ -60,6 +69,12 @@
             </if>
             <if test="score != null">
                 #{score,jdbcType=INTEGER},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="endTime != null">
+                #{endTime,jdbcType=TIMESTAMP},
             </if>
         </trim>
     </insert>
@@ -75,14 +90,22 @@
             <if test="score != null">
                 score = #{score,jdbcType=INTEGER},
             </if>
+            <if test="createTime != null">
+                create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="endTime != null">
+                end_time = #{endTime,jdbcType=TIMESTAMP},
+            </if>
         </set>
         where paper_id = #{paperId,jdbcType=INTEGER}
     </update>
     <update id="updateByPrimaryKey" parameterType="com.wendaoyu.hksys.domain.Paper">
     update paper
     set paper_name = #{paperName,jdbcType=VARCHAR},
-      course_id = #{courseId,jdbcType=INTEGER},
-      score = #{score,jdbcType=INTEGER}
+        course_id = #{courseId,jdbcType=INTEGER},
+        score = #{score,jdbcType=INTEGER},
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+        end_time = #{endTime,jdbcType=TIMESTAMP}
     where paper_id = #{paperId,jdbcType=INTEGER}
   </update>
 </mapper>

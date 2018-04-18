@@ -86,74 +86,67 @@
     <li>
         <a href="teach.html">首页</a>
     </li>
-    <li class="active"></li>
+    <li>
+        <a href="#" id="course"></a>
+    </li>
+    <li>
+        <a href="#" id="paperList">试题</a>
+    </li>
+    <li class="active">试卷详情</li>
 </ol>
 <hr>
-<div class="lesson-info">
-    <div class="h4"></div>
-    <span id="teacher" style="margin: 30px"></span>
-    <span id="class"></span>
-    <p class="info" style="margin: 0px 30px"></p>
+<div class="info text-center">
+    <span id="title"></span>
+    <span id="allScore"></span>
+    <span id="startTime"></span>
+    <span id="endTime"></span>
 </div>
-<hr>
-
-<div class="lesson-choose">
-    <a href="" id="showUser" class="btn btn-primary choose" data-toggle="modal" data-target="#addLesson">
-        班级学生
-    </a>
-    <a href="#" class="btn btn-success choose" id="paperList">
-        试题
-    </a>
-    <a href="work.html" class="btn btn-info choose">
-        作业
-    </a>
-</div>
-<div class="modal fade" id="addLesson" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <span>学生列表</span>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    <span class="sr-only">Close</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <table class="table">
-                    <thead class="thead-default">
-                    <tr>
-                        <th>#</th>
-                        <th>姓名</th>
-                        <th>学号</th>
-                        <th>班级</th>
-                        <th>学校</th>
-                        <th>性别</th>
-                        <th>邮箱</th>
-                    </tr>
-                    </thead>
-                    <tbody id="content">
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-</div>
+<hr id="content">
 <script src="bootstrap/jquery.js"></script>
 <script src="bootstrap/bootstrap.bundle.js"></script>
-<script src="bootstrap/artTemplate.js"></script>
 <script src="js/public.js"></script>
-<script src="js/course.js"></script>
-<script id="users" type="text/html">
-    <tr>
-        <th scope="row">{{index}}</th>
-        <td>{{userName}}</td>
-        <td>{{stuNum}}</td>
-        <td>{{className}}</td>
-        <td>{{school}}</td>
-        <td>{{sex}}</td>
-        <td>{{email}}</td>
-    </tr>
-</script>
+<script src="js/paperDetail.js"></script>
+<script src="bootstrap/artTemplate.js"></script>
+<script id="paperDetail" type="text/html">
+    <div class="question"
+         style="border: 1px solid #e9e9e9; float: left;width: 100%; height: auto; margin: 0px auto; padding: 30px 70px 10px 0px;">
+        <div class="row">
+            <div class="col-md-2" style="text-align: right;">题型、分值</div>
+            <div class="col-md-2" style="margin-bottom: 10px;">
+                <select name="" id="question-type{{problemId}}" class="form-control">
+                    <option value="0" selected disabled>{{problemType}}</option>
+                    <option value="1">单选题</option>
+                    <option value="2">多选题</option>
+                    <option value="3">判断题</option>
+                    <option value="4">填空题</option>
+                    <option value="5">问答题</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <input type="text" class="form-control" placeholder="{{title}}" id="title{{problemId}}">
+            </div>
+            <div class="col-md-2">
+                <input type="number" class="form-control" placeholder="{{score}}" id="score{{problemId}}">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2" style="text-align: right;">题干</div>
+            <div class="col-md-10" style="margin-bottom: 10px;">
+                <textarea rows="3" class="form-control" placeholder="{{headline}}" id="headline{{problemId}}"></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2" style="text-align: right;">解析</div>
+            <div class="col-md-10" style="margin-bottom: 10px;">
+                <textarea rows="3" class="form-control" placeholder="{{answer}}" id="answer{{problemId}}"></textarea>
+            </div>
+        </div>
+        <div class="row" style="width:150px;height:38px;float:right;">
+            <button type="button" class="btn btn-secondary update" id="{{updateId}}" style="margin-right: 10px;">修改</button>
+            <button type="button" class="btn btn-secondary deleteProblem" id="{{canceId}}">取消</button>
+        </div>
+    </div>
+ </script>
 </body>
 
 </html>

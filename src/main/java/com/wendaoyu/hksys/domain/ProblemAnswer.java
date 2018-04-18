@@ -10,6 +10,7 @@ public class ProblemAnswer {
     private Integer score;
 
     private String content;
+    private String paperId;
 
     public Integer getProblemAnswerId() {
         return problemAnswerId;
@@ -49,6 +50,14 @@ public class ProblemAnswer {
 
     public void setContent(String content) {
         this.content = content == null ? null : content.trim();
+    }
+
+    public String getPaperId() {
+        return paperId;
+    }
+
+    public void setPaperId(String paperId) {
+        this.paperId = paperId;
     }
 
     @Override

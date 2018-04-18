@@ -24,4 +24,6 @@ public interface ProblemMapper {
     int updateByPrimaryKey(Problem record);
 
     List<ProblemWithBLOBs> selectByPaper(Integer paperId);
+
+    int countByPaper(Integer paperId);
 }
